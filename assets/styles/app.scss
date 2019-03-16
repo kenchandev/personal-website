@@ -797,8 +797,36 @@ body {
 
   &:nth-of-type(1) {
     right: 0;
-    top: -20px;
+    top: -13px;
     transform: skewY(4.5deg);
+
+    @media only screen and (min-width: 21.5rem) {
+      top: -14px;
+    }
+
+    @media only screen and (min-width: 23.5rem) {
+      top: -15px;
+    }
+
+    @media only screen and (min-width: 24.75rem) {
+      top: -16px;
+    }
+
+    @media only screen and (min-width: 26.25rem) {
+      top: -17px;
+    }
+
+    @media only screen and (min-width: 28rem) {
+      top: -18px;
+    }
+
+    @media only screen and (min-width: 29.75rem) {
+      top: -19px;
+    }
+
+    @media only screen and (min-width: 30rem) {
+      top: -20px;
+    }
   }
 
   &:nth-of-type(2) {
