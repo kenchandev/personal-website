@@ -21,6 +21,7 @@ _Note_: An AWS Lambda function running AWS SES sends an e-mail with the informat
 - [x] Custom Domain Name
 - [x] Comodo SSL Certificate
 - [x] Vanilla ES6 JavaScript
+- [x] Mobile-First (Progressive Enhancement)
 
 ## Roadmap
 
