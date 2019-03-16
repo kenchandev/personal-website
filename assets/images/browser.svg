@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+      #Browser {
+        display: inline;
+      }
+    </style>
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Browser Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F7F6F7" offset="0%"></stop>
+            <stop stop-color="#D7D5D7" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FEFEFE" offset="0%"></stop>
+            <stop stop-color="#F2F1F2" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="0" y="0" width="430" height="22" rx="4"></rect>
+        <filter x="-0.2%" y="-3.4%" width="100.3%" height="109.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0.5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.650980392   0 0 0 0 0.643137255   0 0 0 0 0.650980392  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Browser" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Browser-BG" stroke="#C1C1C1" stroke-width="0.5" fill="#FFFFFF" x="0.25" y="18.4332579" width="799.5" height="581.316742" rx="6"></rect>
+        <g id="Menu">
+            <path d="M0.25,36.75 L799.75,36.75 L799.75,6 C799.75,2.82436269 797.175637,0.25 794,0.25 L6,0.25 C2.82436269,0.25 0.25,2.82436269 0.25,6 L0.25,36.75 Z" id="Address-Bar-BG" stroke="#C1C1C1" stroke-width="0.5" fill="url(#linearGradient-1)"></path>
+            <rect id="New-Tab-BG" fill="#BCBABC" x="776" y="13" width="24" height="24"></rect>
+            <path d="M788,20 L789,20 L789,25 L794,25 L794,26 L789,26 L789,31 L788,31 L788,26 L783,26 L783,25 C786.33667,24.9681291 788.003337,24.9681291 788,25 C787.998372,25.0014166 787.998372,23.33475 788,20 Z" id="New-Tab-Icon" fill="#6B696B"></path>
+            <g id="Address-Bar" transform="translate(185.000000, 7.000000)">
+                <g id="Address-Bar-BG">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <rect stroke="#D2D0D2" stroke-width="0.5" fill="url(#linearGradient-2)" fill-rule="evenodd" x="-0.25" y="-0.25" width="430.5" height="22.5" rx="4"></rect>
+                </g>
+                <path d="M420.637433,7.06168307 C419.524058,6.03818307 418.039933,5.41205807 416.412058,5.41205807 C412.965808,5.41205807 410.162058,8.21580807 410.162058,11.6620581 C410.162058,15.1083081 412.965808,17.9120581 416.412058,17.9120581 C418.132433,17.9120581 419.692433,17.2133081 420.823683,16.0848081 L419.586808,14.8479331 C418.772433,15.6594331 417.649808,16.1620581 416.412058,16.1620581 C413.930683,16.1620581 411.912058,14.1434331 411.912058,11.6620581 C411.912058,9.18068307 413.930683,7.16205807 416.412058,7.16205807 C417.557558,7.16205807 418.603683,7.59293307 419.398933,8.30018307 L417.912058,9.78705807 L420.501183,9.78705807 L422.162058,9.78705807 L422.162058,9.21380807 L422.162058,5.53705807 L420.637433,7.06168307 Z" id="Reload-Icon" fill="#999999" fill-rule="nonzero" transform="translate(416.162058, 11.662058) rotate(-45.000000) translate(-416.162058, -11.662058) "></path>
+            </g>
+            <circle id="Fullscreen-Icon" fill="#27C940" cx="61.9342516" cy="19" r="5.75"></circle>
+            <circle id="Hide-Icon" fill="#FFBD2E" cx="41.9342516" cy="19" r="5.75"></circle>
+            <circle id="Close-Icon" fill="#FF5F58" cx="21.9342516" cy="19" r="5.75"></circle>
+        </g>
+    </g>
+</svg>

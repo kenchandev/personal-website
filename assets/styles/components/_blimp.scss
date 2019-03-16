@@ -1,0 +1,127 @@
+.blimp {
+  position: absolute;
+  animation-duration: 120s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1.5s;
+  left: -1.5em;
+  animation-name: blimp_base;
+
+  @media only screen and (min-width: 30rem) {
+    left: -5em;
+    animation-name: blimp_30rem_36rem_42rem;
+    bottom: 20em;
+  }
+
+  @media only screen and (min-width: 36rem) {
+    bottom: 24em;
+  }
+
+  @media only screen and (min-width: 42rem) {
+    bottom: 27em;
+  }
+
+  @media only screen and (min-width: 48rem) {
+    left: -9em;
+    animation-name: blimp_48rem_56rem;
+    bottom: 26em;
+  }
+
+  @media only screen and (min-width: 56rem) {
+    bottom: 30em;
+  }
+
+  @media only screen and (min-width: 64rem) {
+    left: -12.5em;
+    animation-name: blimp_64rem_70rem;
+    bottom: 30em;
+  }
+
+  @media only screen and (min-width: 70rem) {
+    bottom: 32em;
+  }
+
+  @media only screen and (min-width: 75rem) {
+    left: -16.25em;
+    animation-name: blimp_75rem_80rem_85rem;
+    bottom: 30em;
+  }
+
+  @media only screen and (min-width: 80rem) {
+    bottom: 33em;
+  }
+
+  @media only screen and (min-width: 85rem) {
+    bottom: 36em;
+  }
+
+  svg {
+    height: 4em;
+
+    @media only screen and (min-width: 30rem) {
+      height: 4.25em;
+    }
+
+    @media only screen and (min-width: 48rem) {
+      height: 5em;
+    }
+
+    @media only screen and (min-width: 64rem) {
+      height: 5.625em;
+    }
+
+    @media only screen and (min-width: 75rem) {
+      height: 6.25em;
+    }
+  }
+}
+
+@keyframes blimp_base {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(calc(100vw + 8.5em), 0);
+  }
+}
+
+@keyframes blimp_30rem_36rem_42rem {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(calc(100vw + 9em), 0);
+  }
+}
+
+@keyframes blimp_48rem_56rem {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(calc(100vw + 11em), 0);
+  }
+}
+
+@keyframes blimp_64rem_70rem {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(calc(100vw + 12.5em), 0);
+  }
+}
+
+@keyframes blimp_75rem_80rem_85rem {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(calc(100vw + 15em), 0);
+  }
+}

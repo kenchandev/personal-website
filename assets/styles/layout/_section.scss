@@ -1,0 +1,69 @@
+.section {
+  $root: &;
+
+  min-height: 400px;
+
+  &:nth-of-type(1) {
+    padding-bottom: 16em;
+    overflow: hidden;
+
+    @media only screen and (min-width: 30rem) {
+      padding-bottom: 20em;
+    }
+
+    @media only screen and (min-width: 48rem) {
+      padding-bottom: 24em;
+    }
+
+    @media only screen and (min-width: 64rem) {
+      padding-bottom: 28em;
+    }
+
+    @media only screen and (min-width: 75rem) {
+      padding-bottom: 32em;
+    }
+  }
+
+  &:nth-last-of-type(2) {
+    max-height: 32em;
+
+    @media only screen and (min-width: 30rem) {
+      max-height: 44em;
+    }
+  }
+
+  &:nth-last-of-type(1) {
+    min-height: 30em;
+
+    @media only screen and (min-width: 30rem) {
+      min-height: 28em;
+    }
+  }
+
+  &--bg-empty {
+    background-color: #ffffff;
+  }
+
+  &--bg-alt {
+    background-color: #f6f9fc;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1em;
+
+    @media only screen and (min-width: 30rem) {
+      padding: 0 2.5em;
+    }
+
+    @media only screen and (min-width: 48rem) {
+      padding: 0 5em;
+    }
+
+    @media only screen and (min-width: 64rem) {
+      padding: 0 10em;
+    }
+  }
+}

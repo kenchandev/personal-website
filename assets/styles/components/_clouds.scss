@@ -1,0 +1,138 @@
+$min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
+
+@mixin responsive-bottom($bottoms) {
+  @if length($bottoms) > 0 {
+    @for $i from 1 through length($bottoms) {
+      $bottom: nth($bottoms, $i);
+      $min-width: nth($min-widths, $i);
+
+      @media only screen and (min-width: $min-width) {
+        bottom: $bottom;
+      }
+    }
+  }
+}
+
+@keyframes moveCloud {
+  0% {
+    opacity: 0;
+    left: -1080px;
+  }
+
+  2%,
+  98% {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 0;
+    left: 1780px;
+  }
+}
+
+.cloud {
+  position: absolute;
+  opacity: 0;
+  animation: moveCloud 120s linear;
+}
+
+.cloud--loop {
+  animation: moveCloud 120s linear infinite;
+}
+
+.cloud--1 {
+  height: 2.375em;
+
+  @media only screen and (min-width: 30rem) {
+    height: 3.375em;
+  }
+}
+
+.cloud--2 {
+  height: 1.25em;
+
+  @media only screen and (min-width: 30rem) {
+    height: 2.25em;
+  }
+}
+
+.cloud--3 {
+  height: 2.25em;
+
+  @media only screen and (min-width: 30rem) {
+    height: 3.25em;
+  }
+}
+
+#cloud-1,
+#cloud-2 {
+  animation-delay: 0s;
+  animation-duration: 120s;
+}
+
+#cloud-1 {
+  margin-left: 880px;
+
+  @include responsive-bottom(21em 23em 26em 25em 29em 29em 31em 29em 32em 35em);
+}
+
+#cloud-2 {
+  margin-left: 1580px;
+  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+}
+
+#cloud-3,
+#cloud-4 {
+  animation-delay: 0s;
+}
+
+#cloud-3 {
+  margin-left: 1680px;
+  animation-duration: 120s;
+
+  @include responsive-bottom(18em 20em 23em 22em 26em 26em 28em 26em 29em 32em);
+}
+
+#cloud-4 {
+  animation-duration: 119.9s;
+
+  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+}
+
+#cloud-5 {
+  animation-delay: 18s;
+  animation-duration: 120.2s;
+
+  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+}
+
+#cloud-6,
+#cloud-7 {
+  animation-delay: 42s;
+  animation-duration: 120.3s;
+
+  @include responsive-bottom(19em 21em 24em 23em 27em 27em 29em 27em 30em 33em);
+}
+
+#cloud-7 {
+  animation-delay: 60s;
+  animation-duration: 119.9s;
+
+  @include responsive-bottom(24em 26em 29em 28em 32em 32em 34em 32em 35em 38em);
+}
+
+#cloud-8 {
+  animation-delay: 72s;
+  animation-duration: 120.1s;
+
+  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+}
+
+#cloud-9 {
+  animation-delay: 108s;
+  animation-duration: 120.15s;
+
+  @include responsive-bottom(20em 22em 25em 24em 28em 28em 30em 28em 31em 34em);
+}
+
+// @include responsive-bottom(20em 24em 27em 26em 30em 30em 32em 30em 33em 36em);

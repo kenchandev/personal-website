@@ -1,0 +1,5 @@
+mixin favicons(rel, prefix, sizes, type)
+  each size in sizes
+    - var dimensions = `${ size }x${ size }`
+
+    link(rel=rel, type=type || false, sizes=dimensions, href=require(`./assets/favicons/${ prefix }-${ dimensions }.png`))

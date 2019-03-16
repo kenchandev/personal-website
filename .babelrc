@@ -1,0 +1,15 @@
+{
+  "plugins": ["transform-runtime", "transform-object-rest-spread"],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 11"]
+        },
+        "debug": true,
+        "useBuiltIns": true
+      }
+    ]
+  ]
+}

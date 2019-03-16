@@ -1,0 +1,49 @@
+include ../mixins/favicons
+include ../mixins/rich-snippets
+
+-
+  var author = {
+    name: "Ken Chan",
+    description: "Ken Chan is a software engineer who primarily works on front-end development and tooling. His interests lie in open-source software architecture, data visualizations, client-side technologies/performance and product development.",
+    url: "https://kenchandev.com/",
+    profileRelativeUrl: "./assets/images/profile.png"
+  }
+
+  var primaryColor = "#252832"
+
+  var meta = {
+    twitter: {
+      card: "summary",
+      creator: "@thiskenchan",
+    },
+    openGraph: {
+      title: `${ author.name }`,
+      locale: "en_US",
+      url: `${ author.url }`,
+      type: "website",
+      description: `${ author.description }`,
+      image: `${ author.profileRelativeUrl }`
+    }
+  }
+
+title #{ author.name }
+
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
+meta(name="description", content=author.description)
+meta(name="author", content=author.name)
+
++richSnippets("name", "twitter", meta.twitter)
++richSnippets("property", "og", meta.openGraph)
+
++favicons("apple-touch-icon", "apple-touch-icon", [ 57, 60, 76, 114, 120, 144, 152, 180 ])
++favicons("icon", "android-chrome", [ 192 ], "image/png")
++favicons("icon", "favicon", [ 32, 96, 16 ], "image/png")
+
+link(rel="mask-icon", href=require("./assets/favicons/safari-pinned-tab.svg"), color=primaryColor)
+link(rel="canonical", href="https://kenchandev.com")
+
+meta(name="msapplication-TileColor", content=primaryColor)
+meta(name="msapplication-TileImage", content=require("./assets/favicons/mstile-144x144.png"))
+meta(name="theme-color", content=primaryColor)

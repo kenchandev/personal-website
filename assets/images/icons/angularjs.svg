@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="80px" viewBox="0 0 76 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>angular-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-760.000000, -2355.000000)" fill-rule="nonzero">
+            <g id="Group-9" transform="translate(743.000000, 2355.000000)">
+                <g id="angular-icon" transform="translate(17.000000, 0.000000)">
+                    <polygon id="Shape" fill="#E23237" points="0 13.2596685 37.3435095 0 75.6923077 13.0239411 69.4831731 62.2615101 37.3435095 80 5.70649038 62.4972374"></polygon>
+                    <polygon id="Shape" fill="#B52E31" points="75.0769231 13.0239411 36.9230769 0 36.9230769 80 68.8993535 62.290976"></polygon>
+                    <path d="M37.2876504,9.84615385 L14.1538462,61.391274 L22.7959534,61.2440865 L27.4403512,49.6162608 L37.3170453,49.6162608 L37.3464403,49.6162608 L48.1931667,49.6162608 L53.2784884,61.391274 L61.5384615,61.5384615 L37.2876504,9.84615385 Z M37.3464403,26.3606098 L45.1654897,42.7278782 L37.6697845,42.7278782 L37.2876504,42.7278782 L30.4680282,42.7278782 L37.3464403,26.3606098 Z" id="Shape" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

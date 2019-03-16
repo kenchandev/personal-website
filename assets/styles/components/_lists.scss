@@ -1,0 +1,57 @@
+.occupations {
+  margin: 0em;
+  position: relative;
+  text-align: center;
+
+  opacity: 0;
+  animation-name: translationOccupations, opacityProfile, blurProfile;
+  animation-duration: 0.5s, 0.5s, 0.25s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s;
+
+  @media only screen and (min-width: 30rem) {
+    position: absolute;
+    text-align: left;
+    font-size: 1em;
+    left: calc(112px + 1.25em);
+    top: 6.25em;
+  }
+
+  @media only screen and (min-width: 48rem) {
+    font-size: 1.125em;
+    left: calc(112px + 1.25em);
+    top: 6em;
+  }
+
+  @media only screen and (min-width: 64rem) {
+    font-size: 1.25em;
+    left: calc(128px + 1.25em);
+    top: 6em;
+  }
+
+  @media only screen and (min-width: 75rem) {
+    font-size: 1.5em;
+    left: calc(150px + 1.075em);
+    top: 6em;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child)::after {
+      content: "\00b7";
+      padding: 0 0.25em 0 0.5em;
+    }
+  }
+}
+
+.features {
+  &__item {
+    &:hover {
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}

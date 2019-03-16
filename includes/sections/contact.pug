@@ -1,0 +1,25 @@
+section.section.section--bg-empty
+  div.section__content
+    div.contact-me
+      h3.contact-me__title
+        span Contact Me
+      form.form.form--contact-me(action=htmlWebpackPlugin.options.sesEndpoint, method="POST")
+        input.honeypot(type="input", name="honeypot", value="", tabindex="-1", autocomplete="off")
+        div.form__group
+          label.form__label(for="name")
+            span Full Name
+          input.form__element(type="text", name="name", id="name", autocomplete="off", required)
+        div.form__group
+          label.form__label(for="reply_to")
+            span E-Mail Address
+          input.form__element(type="email", name="reply_to", id="reply_to", autocomplete="off", required)
+        div.form__group
+          label.form__label(for="subject")
+            span Subject
+          input.form__element(type="text", name="subject", id="subject", autocomplete="off", required)
+        div.form__group
+          label.form__label(for="message")
+            span Message
+          textarea.form__element(name="message", id="message", cols="30", rows="10", required)
+        div.form__footer
+          button.btn.btn--primary.btn--lg(type="submit") Submit

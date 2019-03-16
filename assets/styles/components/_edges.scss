@@ -1,0 +1,8 @@
+.edge {
+  &--bottom { @include angle('after') }
+  &--rbottom { @include angle('after', true) }
+  &--top { @include angle('before') }
+  &--rtop { @include angle('before', true) }
+  &--both { @include angle('both') }
+  &--rboth { @include angle('both', true) }
+}

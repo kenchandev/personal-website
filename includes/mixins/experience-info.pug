@@ -1,0 +1,169 @@
+-
+  var experiences = [
+    {
+      title: 'Civic Graph',
+      alias: 'msft',
+      href: 'https://www.civicgraph.io/',
+      caption: 'A crowdsourced, network visualization of the civic technology community. Built at Microsoft.',
+      role: 'Full-Stack Engineer',
+      duration: {
+        start: 'May 2014',
+        end: 'July 2015'
+      },
+      pressCoverage: [
+        {
+          imageUrl: 'politico.svg',
+          articleUrl: 'https://www.politico.com/states/new-york/city-hall/story/2015/02/civic-tech-contestants-range-from-microsoft-to-mta-and-housing-087247'
+        },
+        {
+          imageUrl: 'omidyar-network.svg',
+          articleUrl: 'https://www.omidyar.com/insights/building-civic-tech-sector-last'
+        },
+        {
+          imageUrl: 'government-technology.svg',
+          articleUrl: 'http://www.govtech.com/data/Microsoft-Civic-Graph-Charts-the-New-World-of-Civic-Tech.html'
+        },
+        {
+          imageUrl: 'kantar.svg',
+          articleUrl: 'https://www.informationisbeautifulawards.com/showcase/724-civic-graph'
+        },
+        {
+          imageUrl: 'knight-foundation.svg',
+          articleUrl: 'https://knightfoundation.org/articles/engaging-citizens-government-civic-life'
+        },
+        {
+          imageUrl: 'personal-democracy-media.svg',
+          articleUrl: 'https://personaldemocracy.com/media/civic-graph-put-yourself-map'
+        }
+      ],
+      technologies: [
+        'AngularJS',
+        'D3.js',
+        'Leaflet.js',
+        'Node.js',
+        'Flask',
+        'MySQL',
+        'Microsoft Azure'
+      ],
+      description: 'Easily search and filter for influencers, funders and organizations collaborating on civic technology projects and initiatives that aim to solve the problems of the present and future.',
+      renderHomepageCallback: "renderCivicGraphHomepage"
+    },
+    {
+      title: 'Smart Alec',
+      alias: 'smart-alec',
+      href: 'https://www.smartalec.com/',
+      caption: 'A tutoring marketplace for students to book rigorously vetted tutors for in-person, private lessons.',
+      role: 'Lead Front-End Engineer',
+      duration: {
+        start: 'August 2015',
+        end: 'Present'
+      },
+      pressCoverage: [
+        {
+          imageUrl: 'cheddar.svg',
+          articleUrl: 'https://cheddar.vhx.tv/cheddar-archive/videos/cheddar-cheddar-live-s14-e022317-j-full-mezz-hd-en-us'
+        },
+        {
+          imageUrl: 'alley-watch.svg',
+          articleUrl: 'http://www.alleywatch.com/2016/11/nyc-startup-smart-alec-actually-want-around/'
+        },
+        {
+          imageUrl: 'metro.svg',
+          articleUrl: 'http://www.metro.us/lifestyle/tutoring-on-demand/zsJpex---tZDKJV3Akej7Q/'
+        },
+        {
+          imageUrl: 'built-in-nyc.svg',
+          articleUrl: 'http://www.builtinnyc.com/2016/04/20/nyc-startups-beta'
+        },
+        {
+          imageUrl: 'technical-ly.svg',
+          articleUrl: 'http://technical.ly/brooklyn/2015/07/24/quedify-uber-tutoring-nathan-kane/'
+        },
+        {
+          imageUrl: 'huffington-post.svg',
+          articleUrl: 'http://www.huffingtonpost.com/entry/57e43e5be4b00267764fbc14'
+        },
+        {
+          imageUrl: 'nymetro-parents.svg',
+          articleUrl: 'http://www.nymetroparents.com/rockland/article/Rockland-Schools-and-Education-Guide'
+        },
+        {
+          imageUrl: 'business-insider.svg',
+          articleUrl: 'https://www.businessinsider.com/wework-recruiting-testing-invite-only-startup-incubator-area-51-new-york-2017-12'
+        }
+      ],
+      technologies: [
+        'AngularJS',
+        'Node.js',
+        'Redis',
+        'Neo4j',
+        'Amazon Web Services',
+        'Logentries',
+        'Codeship'
+      ],
+      projectFeatures: [
+        {
+          label: 'Advanced Scheduler',
+          id: 'advanced-scheduler'
+        },
+        {
+          label: 'Chat Client + Customizable Rich Cards',
+          id: 'chat-client'
+        },
+        {
+          label: 'Seamless Booking Process',
+          id: 'booking-process'
+        },
+        {
+          label: 'Multiple Time Zones Support',
+          id: 'time-zones'
+        },
+        {
+          label: 'Beautiful Public Profiles for Tutors',
+          id: 'tutor-profile'
+        }
+      ],
+      renderHomepageCallback: "renderSmartAlecHomepage",
+    }
+  ];
+
+mixin experienceInfo(i)
+  -
+    var experience = experiences[i],
+      modalId = `press-coverage-${experience.alias}`,
+      browserSvg = `<file-svg src="assets/images/browser.svg" data-callback="${ experience.renderHomepageCallback }" data-target-id="Browser" />`,
+      mobileSvg = `<file-svg src="assets/images/mobile.svg" data-callback="${ experience.renderHomepageCallback }" data-target-id="Mobile"  />`;
+
+  div.experience(class=`experience--${experience.alias}`)
+    h3.experience__title
+      a(href=experience.href, target="_blank", rel="noreferrer")= experience.title
+    div.row
+      div.col-xs-12.col-sm-5.col-md-5.col-lg-5
+        p.experience__caption= experience.caption
+        p.experience__role= `${experience.role} (${experience.duration.start} - ${experience.duration.end})`
+        p.experience__technologies= experience.technologies.join(', ')
+      div.col-sm-1.col-md-1.col-lg-1
+      div.col-xs-12.col-sm-6.col-md-6.col-lg-6
+        if experience.description
+          p.experience__description= experience.description
+        else if experience.projectFeatures
+          ul.experience__project-features
+            each feature in experience.projectFeatures
+              li.experience__project-features__item
+                a(id=`pf-${feature.id}`, href="javascript:void")= feature.label
+        div
+          a.btn.btn--secondary(href=`#${modalId}`, data-modal-open) Press Coverage
+    div.viewport-device
+      div.browser !{browserSvg}
+      div.mobile !{mobileSvg}
+      div.lds-ring.lds-ring--blue
+        div
+        div
+        div
+        div
+    div.experience__press-coverage(id=modalId)
+      ul.coverage-list(class=`coverage-list--${experience.alias}`)
+        each report in experience.pressCoverage
+          li.coverage-list__item
+            a(href=report.articleUrl)
+              img(src=require(`./assets/images/${report.imageUrl}`))

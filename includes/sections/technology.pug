@@ -1,0 +1,17 @@
+include ../mixins/technology-items
+
+-
+  var technologyGraphic = '<file-svg src="assets/images/technology.svg" />';
+
+section.section.section--bg-alt.edge.edge--top
+  div.section__content
+    img.abstract-shape(src=require("./assets/images/abstract-shape.svg"), alt="Abstract Shape")
+    img.abstract-shape(src=require("./assets/images/abstract-shape.svg"), alt="Abstract Shape")
+    div.technology
+      h3.technology__title
+        span Technology
+      div.row.middle-xs
+        div.col-xs-12.col-sm-6.col-md-6.col-lg-6
+          div.technology__graphic !{technologyGraphic}
+        div.col-xs-12.col-sm-6.col-md-6.col-lg-6
+          +technologyItems()

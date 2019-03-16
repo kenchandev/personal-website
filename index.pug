@@ -1,0 +1,50 @@
+doctype html
+html(lang='en')
+  head
+    include includes/partials/ascii
+    include includes/partials/meta
+
+    if htmlWebpackPlugin.options.isProd
+      include includes/partials/analytics
+
+    <!--[if lt IE 11]>
+    style(type="text/css").
+      body {
+        overflow: hidden;
+      }
+
+      .container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        z-index: 999;
+        font-family: san-serif;
+      }
+
+      .browserupgrade {
+        padding: 143px 30px;
+      }
+    <![endif]-->
+  body
+    <!--[if lt IE 11]>
+    div.container
+      center
+        p.browserupgrade You are using an #[strong outdated] browser. Please #[a(href="http://browsehappy.com/") upgrade your browser] to improve your experience.
+    <![endif]-->
+
+    include includes/partials/header
+
+    main
+      include includes/sections/hero
+      include includes/sections/civic-graph
+      include includes/sections/smart-alec
+      include includes/sections/technology
+      include includes/sections/contact
+      include includes/sections/placeholder
+
+    include includes/partials/footer
+    include includes/partials/modal
+    include includes/partials/thanks

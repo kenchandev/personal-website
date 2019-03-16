@@ -1,0 +1,14 @@
+@mixin after {
+  &::after { @content; }
+}
+
+@mixin before {
+  &::before { @content; }
+}
+
+@mixin after-before {
+  &::after,
+  &::before {
+    @content;
+  }
+}

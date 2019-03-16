@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250px" height="288px" viewBox="0 0 250 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+
+    <style>
+      @media only screen and (min-width: 30rem) {
+        #Mobile-Top-Left, #Mobile-Bottom-Right {
+          display: none;
+        }
+      }
+
+      #Mobile-Top-Left {
+        animation-name: translationTopLeft;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-fill-mode:forwards;
+        animation-delay: 1.35s;
+      }
+
+      #Mobile-Bottom-Right {
+        animation-name: translationBottomRight;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-fill-mode:forwards;
+        animation-delay: 1.35s;
+      }
+
+      @keyframes translationTopLeft {
+        0% {
+          transform: translate3d(0px, 15.2px, 0px);
+        }
+
+        100% {
+          transform: translate3d(-62.5px, -22.3px, 0px);
+        }
+      }
+
+      @keyframes translationBottomRight {
+        0% {
+          transform: translate3d(136px, 102.8px, 0px);
+        }
+
+        100% {
+          transform: translate3d(198.5px, 140.3px, 0px);
+        }
+      }
+    </style>
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo" fill="#252832">
+            <g>
+                <g id="Group">
+                    <path d="M125,0 L250,72 L250,216 L125,288 L-2.84217094e-14,216 L-1.0658141e-13,72 L125,0 Z M124.719748,36.6185567 L31.3140889,90.4202163 L31.3140889,198.023536 L124.719748,251.825195 L218.125407,198.023536 L218.125407,90.4202163 L124.719748,36.6185567 Z" id="Hexagon"></path>
+                    <path d="M188,110.413749 L188,178.470965 L188,186.721299 L171.133858,196.225021 L171.133858,178.470965 L171.133858,110.413749 L171.133858,92.6596926 L188,102.163415 L188,110.413749 Z M78.8661417,110.413749 L78.8661417,178.470965 L78.8661417,196.225021 L62,186.721299 L62,178.470965 L62,110.413749 L62,102.163415 L78.8661417,92.6596926 L78.8661417,110.413749 Z M89.7795276,94.6387703 L89.7795276,86.5037227 L106.645669,77 L106.645669,94.6387703 L106.645669,123 L143.354331,123 L143.354331,94 L143.354331,77 L160.220472,86.5037227 L160.220472,94 L160.220472,140 L143.354331,140 L106.645669,140 L106.645669,149 L143.471039,149 L160.220472,149 L160.220472,198.591802 L160.220472,202.409813 L143.354331,211.913535 L143.354331,198.591802 L143.354331,166 L106.645669,166 L106.645669,194.591802 L106.645669,212 L89.7795276,202.496277 L89.7795276,194.591802 L89.7795276,94.6387703 Z" id="KC-Logo"></path>
+                </g>
+                <g id="Mobile-Top-Left" transform="translate(0.000000, 15.200000)">
+                    <path d="M0.0173205081,57 L97.49714,0.72 L113.15214,27.8352554 L31.31,75.0868369 L31.31,169.58 L-5.08038056e-13,169.58 L-5.08038056e-13,57 L0.0173205081,57 Z" id="Combined-Shape"></path>
+                </g>
+                <g id="Mobile-Bottom-Right" transform="translate(136.000000, 102.800000)">
+                    <path d="M0.0173205081,57 L97.49714,0.72 L113.15214,27.8352554 L31.31,75.0868369 L31.31,169.58 L-5.08038056e-13,169.58 L-5.08038056e-13,57 L0.0173205081,57 Z" id="Combined-Shape" transform="translate(56.576070, 85.150000) scale(-1, -1) translate(-56.576070, -85.150000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

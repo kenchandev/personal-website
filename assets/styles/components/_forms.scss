@@ -1,0 +1,157 @@
+.form {
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  margin: auto;
+  max-width: 750px;
+  padding: 1.75em 2em;
+  background-color: #ffffff;
+  border-radius: 4px;
+
+  @media only screen and (min-width: 30rem) {
+    padding: 2em 4em;
+  }
+
+  @media only screen and (min-width: 48rem) {
+    padding: 3em 6em;
+  }
+
+  &__group {
+    margin-bottom: 1.5em;
+    position: relative;
+
+    @media only screen and (min-width: 30rem) {
+      margin-bottom: 2em;
+    }
+
+    &--sm {
+    }
+
+    &--lg {
+    }
+  }
+
+  &__label {
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    display: block;
+    font-weight: 600;
+    color: rgb(107, 110, 120);
+
+    // @media only screen and (min-width: 30rem) {
+    //   font-size: 1.25rem;
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   margin: 0;
+    //   line-height: 46px;
+    //   left: 10px;
+    //   color: #73797f;
+    // }
+  }
+
+  &__text {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  &__element {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    padding: 0.275rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #252832;
+    background-color: #fafcfe;
+    background-clip: padding-box;
+    border: 1px solid #e6e9ec;
+    border-radius: 2.75px;
+    transition: background-color 0.2s ease-in, border 0.2s ease-in;
+
+    @media only screen and (min-width: 30rem) {
+      min-height: 46px;
+      padding: 0.375rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    // @include border-radius($input-border-radius, 0);
+
+    // @include box-shadow($input-box-shadow);
+    // @include transition($input-transition);
+
+    // &--sm {
+    //   height: $input-height-sm;
+    //   padding: $input-padding-y-sm $input-padding-x-sm;
+    //   font-size: $input-font-size-sm;
+    //   line-height: $input-line-height-sm;
+    //   @include border-radius($input-border-radius-sm);
+    // }
+
+    // &--lg {
+    //   height: $input-height-lg;
+    //   padding: $input-padding-y-lg $input-padding-x-lg;
+    //   font-size: $input-font-size-lg;
+    //   line-height: $input-line-height-lg;
+    //   @include border-radius($input-border-radius-lg);
+    // }
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+      background-color: transparent;
+      border: 0;
+    }
+
+    &:focus {
+      // color: $input-focus-color;
+      // background-color: $input-focus-bg;
+      // border-color: $input-focus-border-color;
+      outline: 0;
+      // Avoid using mixin so we can pass custom focus shadow properly
+      // @if $enable-shadows {
+      //   box-shadow: $input-box-shadow, $input-focus-box-shadow;
+      // } @else {
+      //   box-shadow: $input-focus-box-shadow;
+      // }
+      border: 1px solid #a5a8b2;
+      background-color: white;
+    }
+
+    // Placeholder
+    &::placeholder {
+      // color: $input-placeholder-color;
+      // Override Firefox's unusual default opacity.
+      opacity: 1;
+    }
+
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &:disabled,
+    &[readonly] {
+      // background-color: $input-disabled-bg;
+      // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+      opacity: 1;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}

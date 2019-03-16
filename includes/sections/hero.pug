@@ -1,0 +1,39 @@
+-
+  var profileLogo = '<file-svg src="../../assets/images/logo.svg" />',
+    blimpGraphic = '<file-svg src="../../assets/images/blimp.svg" />';
+
+section.section.section--bg-empty
+  div.section__content
+    div.profile
+      div.profile__logo !{profileLogo}
+      h1.profile__name Ken Chan
+      ul.occupations
+        li.occupations__item Software Engineer
+        li.occupations__item Web Architect
+    hr.divider
+    p.description Building robust and insightful web applications, open-source software and data visualizations.
+    ul.social-icons
+      li.social-icons__item
+        a(href="https://github.com/kenchandev", target="_blank", rel="noreferrer")
+          img(src=require("../../assets/images/icons/github.svg"), alt="GitHub")
+      li.social-icons__item
+        a(href="https://codepen.io/kenchandev", target="_blank", rel="noreferrer")
+          img(src=require("../../assets/images/icons/codepen.svg"), alt="Codepen")
+      li.social-icons__item
+        a(href="https://linkedin.com/in/kenchandev", target="_blank", rel="noreferrer")
+          img(src=require("../../assets/images/icons/linkedin.svg"), alt="LinkedIn")
+      li.social-icons__item
+        a(href="https://twitter.com/thiskenchan", target="_blank", rel="noreferrer")
+          img(src=require("../../assets/images/icons/twitter.svg"), alt="Twitter")
+    div.city-graphic
+      img#cloud-1.cloud.cloud--1(src=require("../../assets/images/cloud-1.svg"), alt="Cloud")
+      img#cloud-2.cloud.cloud--2(src=require("../../assets/images/cloud-2.svg"), alt="Cloud")
+      img#cloud-3.cloud.cloud--3(src=require("../../assets/images/cloud-3.svg"), alt="Cloud")
+      img#cloud-4.cloud.cloud--loop.cloud--1(src=require("../../assets/images/cloud-1.svg"), alt="Cloud")
+      img#cloud-5.cloud.cloud--loop.cloud--2(src=require("../../assets/images/cloud-2.svg"), alt="Cloud")
+      img#cloud-6.cloud.cloud--loop.cloud--3(src=require("../../assets/images/cloud-3.svg"), alt="Cloud")
+      img#cloud-7.cloud.cloud--loop.cloud--1(src=require("../../assets/images/cloud-1.svg"), alt="Cloud")
+      img#cloud-8.cloud.cloud--loop.cloud--2(src=require("../../assets/images/cloud-2.svg"), alt="Cloud")
+      img#cloud-9.cloud.cloud--loop.cloud--3(src=require("../../assets/images/cloud-3.svg"), alt="Cloud")
+      div.blimp !{blimpGraphic}
+      img.city-graphic__img(src=require("../../assets/images/city.svg"), alt="City Graphic")

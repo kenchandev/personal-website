@@ -1,0 +1,59 @@
+$font: (
+  family-copy: (
+    "averta",
+    Helvetica,
+    sans-serif
+  ),
+  family-heading: (
+    "averta",
+    Helvetica,
+    sans-serif
+  ),
+  btn: (
+    "averta",
+    Helvetica,
+    sans-serif
+  ),
+  weight-light: 300,
+  weight-regular: 400,
+  weight-bold: 700,
+  size-base: 16px
+);
+
+$palette: (
+  bg-primary: #ffffff,
+  bg-alt: #f6f9fc,
+  text-primary: #252832,
+  text-secondary: #9098a1,
+  btn: (
+    primary: (
+      bg: #478bd7,
+      text: #ffffff
+    ),
+    secondary: (
+      bg: #ffffff,
+      text: #478bd7
+    )
+  )
+);
+
+$btn: (
+  box-shadow: (
+    0 4px 6px rgba(50, 50, 93, 0.11),
+    0 1px 3px rgba(0, 0, 0, 0.08)
+  ),
+  font-weight: 700,
+  line-height: 1,
+  md: (
+    padding-x: 14px,
+    padding-y: 10px,
+    font-size: 1rem,
+    border-radius: 4px
+  ),
+  lg: (
+    padding-x: 20px,
+    padding-y: 16px,
+    font-size: 1.25rem,
+    border-radius: 5px
+  )
+);

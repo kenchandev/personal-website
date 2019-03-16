@@ -1,0 +1,29 @@
+.header {
+  min-height: 5em;
+  background-color: #ffffff;
+
+  @include after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+.nav {
+  position: relative;
+  float: right;
+
+  &__list {
+    &__item {
+      padding: 1em 1.125em;
+
+      @media only screen and (min-width: 30rem) {
+        padding: 1.25em 1.5em;
+      }
+
+      @media only screen and (min-width: 64rem) {
+        padding: 1.5em 2em;
+      }
+    }
+  }
+}

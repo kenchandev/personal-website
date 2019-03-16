@@ -1,0 +1,153 @@
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin linear-gradient($from, $to) {
+  background-color: $to; //  Fallback
+  background-image: -moz-linear-gradient($from, $to); //  Mozilla Firefox
+  background-image: -o-linear-gradient($from, $to); //  Opera
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, $from),
+    color-stop(1, $to)
+  ); //  Webkit (Safari 4+, Chrome 1+)
+  background-image: -webkit-linear-gradient($from, $to); //  Webkit (Chrome 11+)
+  background-image: -ms-linear-gradient($from, $to); //  IE10
+  background-image: linear-gradient($from, $to);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transition-property($transition-property...) {
+  -webkit-transition-property: $transition-property;
+  transition-property: $transition-property;
+}
+
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+
+@mixin transition-duration($transition-duration...) {
+  -webkit-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
+}
+
+@mixin transition-timing-function($timing-function) {
+  -webkit-transition-timing-function: $timing-function;
+  transition-timing-function: $timing-function;
+}
+
+@mixin transition-transform($transition...) {
+  -webkit-transition: -webkit-transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
+  transition: transform $transition;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+@mixin transform-origin($args...) {
+  -webkit-transform-origin: $args;
+  -moz-transform-origin: $args;
+  -ms-transform-origin: $args;
+  transform-origin: $args;
+}
+
+@mixin transform-rotate($deg) {
+  -ms-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin hover-transition() {
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -mox-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin box-shadow-spread($x, $y, $blur, $spread, $color) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -mox-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin box-shadow-inset($inset-x, $inset-y, $inset-blur, $inset-color) {
+  -webkit-box-shadow: inset $inset-x $inset-y $inset-blur $inset-color;
+  -mox-box-shadow: inset $inset-x $inset-y $inset-blur $inset-color;
+  box-shadow: inset $inset-x $inset-y $inset-blur $inset-color;
+}
+
+@mixin box-shadow-with-inset(
+  $x,
+  $y,
+  $blur,
+  $color,
+  $inset-x,
+  $inset-y,
+  $inset-blur,
+  $inset-color
+) {
+  -webkit-box-shadow: $x $y $blur $color,
+    inset $inset-x $inset-y $inset-blur $inset-color;
+  -mox-box-shadow: $x $y $blur $color,
+    inset $inset-x $inset-y $inset-blur $inset-color;
+  box-shadow: $x $y $blur $color,
+    inset $inset-x $inset-y $inset-blur $inset-color;
+}
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin button-size(
+  $padding-y,
+  $padding-x,
+  $font-size,
+  $line-height,
+  $border-radius
+) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
