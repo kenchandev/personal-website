@@ -1,5 +1,6 @@
 import { hasClass, addClass, removeClass } from "./utils";
 import { SCREENSHOT_ATTRS } from "./enums";
+import { isPartiallyVisible } from "./utils";
 
 export const getSvgElement = (modifier, viewportClass) => {
   return document.querySelector(
