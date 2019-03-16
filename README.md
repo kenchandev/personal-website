@@ -1,4 +1,4 @@
-# kenchandev.github.io
+# personal-website
 
 <p>
   <img src="https://img.shields.io/badge/pagespeed%20%7C%20mobile-90-brightgreen.svg" alt="Google PageSpeed Insights - Mobile" />
@@ -7,6 +7,8 @@
 </p>
 
 Source Code for Ken Chan's Personal Website.
+
+<img src="https://www.dl.dropboxusercontent.com/s/j3m71um8iqu6gxd/Screenshot%202019-03-15%2021.47.37.png" alt="Ken Chan's Personal Website Screenshot" />
 
 _Note_: An AWS Lambda function running AWS SES sends an e-mail with the information filled out within the contact form. <a href="https://github.com/kenchandev/site-ses">Source Code</a>
 
