@@ -21,6 +21,7 @@ deploy:
   local-dir: dist/
   github-token: $GITHUB_API_KEY
   keep-history: true
+  repo: kenchandev/kenchandev.github.io
+  target-branch: master
   on:
-    repo: kenchandev/kenchandev.github.io
     branch: master
