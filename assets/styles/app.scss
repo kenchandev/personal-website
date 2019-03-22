@@ -174,7 +174,7 @@ body {
   }
 
   &__name {
-    color: #252832;
+    color: _palette(text-primary);
     border-bottom: none;
     padding-bottom: 0;
     text-transform: uppercase;
@@ -357,7 +357,7 @@ body {
   &__title {
     font-family: _font(family-heading);
     font-weight: 700;
-    color: #252832;
+    color: _palette(text-primary);
     letter-spacing: -1px;
     font-size: 2.5rem;
     margin-bottom: 0.6em;
@@ -380,7 +380,7 @@ body {
 
     a {
       text-decoration: none;
-      color: #252832;
+      color: _palette(text-primary);
       position: relative;
 
       &::after {
@@ -479,21 +479,21 @@ body {
     list-style: none;
 
     &__item > a {
-      color: #252832;
+      color: _palette(text-primary);
       font-weight: 600;
       pointer-events: none;
       cursor: default;
 
       @media only screen and (min-width: 30rem) {
-        color: #478bd7;
+        color: _palette(a, link);
         text-decoration: none;
-        font-weight: 400;
+        font-weight: _font(weight-regular);
         pointer-events: auto;
         cursor: pointer;
 
         &.active,
         &:hover {
-          font-weight: 700;
+          font-weight: _font(weight-bold);
         }
       }
     }
@@ -585,7 +585,7 @@ body {
   &__title {
     font-family: _font(family-heading);
     font-weight: 700;
-    color: #252832;
+    color: _palette(text-primary);
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1.25em;
@@ -698,23 +698,15 @@ body {
   position: relative;
   max-width: 70em;
   width: auto;
-  // padding: 0px 2.5em;
   margin: auto;
   padding-top: 4.5em;
   padding-bottom: 4.5em;
   z-index: 2;
 
   &__title {
-    // font-family: "noto sans";
-    // font-size: 48px;
-    // font-weight: 700;
-    // color: #252832;
-    // margin-bottom: 1em;
-    // text-align: center;
-
     font-family: _font(family-heading);
     font-weight: 700;
-    color: #252832;
+    color: _palette(text-primary);
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1.5em;
@@ -823,7 +815,7 @@ body {
 
 .copyright {
   font-size: 1.25rem;
-  color: #9098a1;
+  color: _palette(text-secondary);
   margin-bottom: 0.5em;
 }
 

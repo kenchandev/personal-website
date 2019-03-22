@@ -97,10 +97,10 @@
   transition: all 0.1s ease-in-out;
 }
 
-@mixin box-shadow($x, $y, $blur, $color) {
-  -webkit-box-shadow: $x $y $blur $color;
-  -mox-box-shadow: $x $y $blur $color;
-  box-shadow: $x $y $blur $color;
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -mox-box-shadow: $args;
+  box-shadow: $args;
 }
 
 @mixin box-shadow-spread($x, $y, $blur, $spread, $color) {
