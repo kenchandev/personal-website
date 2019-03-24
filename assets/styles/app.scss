@@ -511,7 +511,7 @@ body {
   max-width: 800px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 32px;
+  margin-top: 2em;
 
   @media only screen and (min-width: 30rem) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -639,13 +639,14 @@ body {
 
   &__item {
     margin: 0 auto 1em;
-    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1),
-      0 5px 15px rgba(0, 0, 0, 0.07);
     padding: 0.5em 0.25em;
     border-radius: 4px;
     max-width: 132px;
     text-align: center;
     background-color: white;
+
+    @include box-shadow(0 15px 35px rgba(50, 50, 93, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.07));
 
     @media only screen and (min-width: 30rem) {
       padding: 0.75em 0.625em;
