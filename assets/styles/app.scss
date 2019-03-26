@@ -1,93 +1,3 @@
-@keyframes translationSocialIcon {
-  0% {
-    transform: translate3d(0, -0.5em, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationCityGraphic {
-  0% {
-    transform: translate3d(0, 3em, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationProfileLogo {
-  0% {
-    transform: translate3d(0, 0.5em, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationProfileName {
-  0% {
-    transform: translate3d(0.25em, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationOccupations {
-  0% {
-    transform: translate3d(0.5em, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationProfileDivider {
-  0% {
-    transform: translate3d(0.625em, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes translationProfileDescription {
-  0% {
-    transform: translate3d(0.75em, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes opacityProfile {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes blurProfile {
-  0% {
-    filter: blur(2px);
-  }
-
-  100% {
-    filter: blur(0);
-  }
-}
-
 @import "libs/angle-edges";
 @import "libs/functions";
 @import "libs/hover";
@@ -114,6 +24,96 @@
 @import "layout/header";
 @import "layout/section";
 
+@keyframes translationSocialIcon {
+  0% {
+    @include transform(translate3d(0, -0.5em, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationCityGraphic {
+  0% {
+    @include transform(translate3d(0, 3em, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationProfileLogo {
+  0% {
+    @include transform(translate3d(0, 0.5em, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationProfileName {
+  0% {
+    @include transform(translate3d(0.25em, 0, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationOccupations {
+  0% {
+    @include transform(translate3d(0.5em, 0, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationProfileDivider {
+  0% {
+    @include transform(translate3d(0.625em, 0, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes translationProfileDescription {
+  0% {
+    @include transform(translate3d(0.75em, 0, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+@keyframes opacityProfile {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blurProfile {
+  0% {
+    filter: blur(2px);
+  }
+
+  100% {
+    filter: blur(0);
+  }
+}
+
 body {
   background-color: #dfe3e8;
   color: _palette(text-primary);
@@ -132,14 +132,14 @@ body {
   position: relative;
   padding-top: 1.5em;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     padding-top: 0;
   }
 
   &__logo {
     display: block;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       display: inline-block;
     }
 
@@ -156,18 +156,18 @@ body {
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
 
-      @media only screen and (min-width: 30rem) {
+      @include for-size(phone-landscape-up) {
         display: inline-block;
         vertical-align: middle;
         width: 112px;
         margin: 0;
       }
 
-      @media only screen and (min-width: 64rem) {
+      @include for-size(tablet-landscape-up) {
         width: 128px;
       }
 
-      @media only screen and (min-width: 75rem) {
+      @include for-size(desktop-up) {
         width: 150px;
       }
     }
@@ -193,7 +193,7 @@ body {
     animation-fill-mode: forwards;
     animation-delay: 0.65s;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       display: inline-block;
       vertical-align: middle;
       margin-left: 0.2em;
@@ -202,15 +202,15 @@ body {
       font-size: 3.75rem;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       font-size: 4.5rem;
     }
 
-    @media only screen and (min-width: 64rem) {
+    @include for-size(tablet-landscape-up) {
       font-size: 5rem;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       font-size: 6rem;
     }
   }
@@ -229,19 +229,19 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.95s;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     margin: 2em 0 1.25em 0;
   }
 
-  @media only screen and (min-width: 48rem) {
+  @include for-size(tablet-portrait-up) {
     margin: 2.5em 0 1.5em 0;
   }
 
-  @media only screen and (min-width: 64rem) {
+  @include for-size(tablet-landscape-up) {
     margin: 3em 0 2em 0;
   }
 
-  @media only screen and (min-width: 75rem) {
+  @include for-size(desktop-up) {
     margin: 4em 0 3em 0;
   }
 }
@@ -262,19 +262,19 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 1.05s;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     text-align: left;
   }
 
-  @media only screen and (min-width: 48rem) {
+  @include for-size(tablet-portrait-up) {
     font-size: 1.125em;
   }
 
-  @media only screen and (min-width: 64rem) {
+  @include for-size(tablet-landscape-up) {
     font-size: 1.25em;
   }
 
-  @media only screen and (min-width: 75rem) {
+  @include for-size(desktop-up) {
     font-size: 1.5em;
   }
 }
@@ -285,7 +285,7 @@ body {
   text-align: center;
   margin: 0 0 2em 0;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     margin: 0 0 3.75em 0;
     text-align: left;
   }
@@ -311,7 +311,7 @@ body {
     img {
       height: 2.25em;
 
-      @media only screen and (min-width: 30rem) {
+      @include for-size(phone-landscape-up) {
         height: 2.5em;
       }
     }
@@ -327,7 +327,7 @@ body {
   &--smart-alec {
     padding-top: 2.75em;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       padding-top: 4em;
     }
   }
@@ -335,7 +335,7 @@ body {
   &--msft {
     padding-bottom: 3em;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       padding-top: 4.5em;
     }
   }
@@ -343,12 +343,12 @@ body {
   &--smart-alec {
     padding-bottom: 3em;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       padding-top: 4em;
       padding-bottom: 4.5em;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       padding-top: 4.5em;
       padding-bottom: 9em;
     }
@@ -362,19 +362,19 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.6em;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       font-size: 2.875rem;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       font-size: 3.125rem;
     }
 
-    @media only screen and (min-width: 64rem) {
+    @include for-size(tablet-landscape-up) {
       font-size: 3.5rem;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       font-size: 4rem;
     }
 
@@ -402,20 +402,20 @@ body {
     font-weight: 700;
     font-size: 1.25rem;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       font-size: 1.3125rem;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       line-height: 1.3;
       font-size: 1.375rem;
     }
 
-    @media only screen and (min-width: 64rem) {
+    @include for-size(tablet-landscape-up) {
       font-size: 1.4375rem;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       line-height: 1.4;
       font-size: 1.625rem;
     }
@@ -428,20 +428,20 @@ body {
     margin-bottom: 1em;
     display: block;
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       font-size: 1.0625rem;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       font-size: 1.125rem;
       line-height: 1.7;
     }
 
-    @media only screen and (min-width: 64rem) {
+    @include for-size(tablet-landscape-up) {
       font-size: 1.1875rem;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       font-size: 1.375rem;
       line-height: 1.6;
     }
@@ -452,11 +452,11 @@ body {
     font-size: 0.875rem;
     line-height: 1.4;
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       font-size: 0.9375rem;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       font-size: 1.0625rem;
     }
   }
@@ -466,11 +466,11 @@ body {
     margin-bottom: 1.5em;
     font-size: 0.625rem;
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(phone-landscape-up) {
       font-size: 0.6875rem;
     }
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(tablet-portrait-up) {
       font-size: 0.75rem;
     }
   }
@@ -484,7 +484,7 @@ body {
       pointer-events: none;
       cursor: default;
 
-      @media only screen and (min-width: 30rem) {
+      @include for-size(phone-landscape-up) {
         color: _palette(a, link);
         text-decoration: none;
         font-weight: _font(weight-regular);
@@ -513,7 +513,7 @@ body {
   grid-template-columns: 1fr 1fr;
   margin-top: 2em;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -532,7 +532,7 @@ body {
       & > img {
         width: 80%;
 
-        @media only screen and (min-width: 30rem) {
+        @include for-size(phone-landscape-up) {
           max-width: 200px;
         }
       }
@@ -545,22 +545,22 @@ body {
   right: -200px;
   left: -200px;
 
-  @media only screen and (min-width: 30rem) {
+  @include for-size(phone-landscape-up) {
     left: -150px;
     right: -150px;
   }
 
-  @media only screen and (min-width: 48rem) {
+  @include for-size(tablet-portrait-up) {
     left: -100px;
     right: -100px;
   }
 
-  @media only screen and (min-width: 64rem) {
+  @include for-size(tablet-landscape-up) {
     left: -50px;
     right: -50px;
   }
 
-  @media only screen and (min-width: 75rem) {
+  @include for-size(desktop-up) {
     left: 0;
     right: 0;
   }
@@ -591,6 +591,11 @@ body {
     margin-bottom: 1.25em;
     letter-spacing: -2px;
 
+    @include for-size(phone-landscape-up) {
+      font-size: 3.725rem;
+      margin-bottom: 1.2em;
+    }
+
     span {
       position: relative;
 
@@ -604,17 +609,12 @@ body {
         transform: translate3d(-50%, 0, 0);
       }
     }
-
-    @media only screen and (min-width: 30rem) {
-      font-size: 3.725rem;
-      margin-bottom: 1.2em;
-    }
   }
 
   &__graphic {
     padding: 0em;
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       padding: 0 2em 0 1em;
     }
 
@@ -624,13 +624,13 @@ body {
       margin: 0 auto 2.25em;
       display: block;
 
-      @media only screen and (min-width: 30rem) {
+      @include for-size(phone-landscape-up) {
         height: auto;
         width: 75%;
         margin: 0 auto 3.5em;
       }
 
-      @media only screen and (min-width: 48rem) {
+      @include for-size(tablet-portrait-up) {
         width: 100%;
         margin: 0;
       }
@@ -645,22 +645,24 @@ body {
     text-align: center;
     background-color: white;
 
-    @include box-shadow(0 15px 35px rgba(50, 50, 93, 0.1),
-    0 5px 15px rgba(0, 0, 0, 0.07));
+    @include box-shadow(
+      0 15px 35px rgba(50, 50, 93, 0.1),
+      0 5px 15px rgba(0, 0, 0, 0.07)
+    );
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       padding: 0.75em 0.625em;
     }
 
-    @media only screen and (min-width: 48rem) {
+    @include for-size(tablet-portrait-up) {
       padding: 0.5em 0.625em;
     }
 
-    @media only screen and (min-width: 64rem) {
+    @include for-size(tablet-landscape-up) {
       padding: 0.625em 0.625em;
     }
 
-    @media only screen and (min-width: 75rem) {
+    @include for-size(desktop-up) {
       padding: 0.75em 0.625em;
     }
 
@@ -670,15 +672,15 @@ body {
       margin: 0 auto 0.5em;
       max-width: 100%;
 
-      @media only screen and (min-width: 48rem) {
+      @include for-size(tablet-portrait-up) {
         height: 32px;
       }
 
-      @media only screen and (min-width: 64rem) {
+      @include for-size(tablet-landscape-up) {
         height: 34px;
       }
 
-      @media only screen and (min-width: 75rem) {
+      @include for-size(desktop-up) {
         height: 42px;
       }
     }
@@ -688,7 +690,7 @@ body {
       display: block;
       font-weight: 600;
 
-      @media only screen and (min-width: 30rem) {
+      @include for-size(phone-landscape-up) {
         font-size: 0.75rem;
       }
     }
@@ -727,7 +729,7 @@ body {
       }
     }
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       font-size: 3.725rem;
       margin-bottom: 1.2em;
     }
@@ -761,7 +763,7 @@ body {
       }
     }
 
-    @media only screen and (min-width: 30rem) {
+    @include for-size(phone-landscape-up) {
       width: 64px;
       height: 64px;
 
