@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OfflinePlugin = require("offline-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
 module.exports = isProd => {
   return {
@@ -68,6 +69,9 @@ module.exports = isProd => {
             ? "https://c4g6e6lp97.execute-api.us-east-1.amazonaws.com/production"
             : "http://localhost:3000"
         }/site-mailer`
+      }),
+      new ScriptExtHtmlWebpackPlugin({
+        defaultAttribute: "defer"
       }),
       new webpack.DefinePlugin({
         IS_PROD: isProd
