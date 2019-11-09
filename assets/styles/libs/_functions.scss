@@ -35,3 +35,35 @@
 @function _btn($keys...) {
   @return val($btn, $keys...);
 }
+
+/// Generates `$grid` map value.
+/// @param {string} $gutter-width Gutter Width.
+/// @param {string} $outer-margin Outer Margin.
+/// @param {map} $breakpoints Breakpoints.
+/// @return {map} Value.
+@function _grid($gutter-width, $outer-margin, $breakpoints) {
+  $xs-min: map-get($breakpoints, xs);
+  $sm-min: map-get($breakpoints, sm);
+  $md-min: map-get($breakpoints, md);
+  $lg-min: map-get($breakpoints, lg);
+
+  $grid: (
+    gutter-width: $gutter-width,
+    outer-margin: $outer-margin,
+    gutter-compensation: calc((#{$gutter-width} * 0.5) * -1),
+    half-gutter-width: calc(#{$gutter-width} * 0.5),
+    xs-min: $xs-min,
+    sm-min: $sm-min,
+    md-min: $md-min,
+    lg-mid: $lg-min,
+    screen-xs-min: #{$xs-min}em,
+    screen-sm-min: #{$sm-min}em,
+    screen-md-min: #{$md-min}em,
+    screen-lg-min: #{$lg-min}em,
+    container-sm: calc(#{$sm-min} + #{$gutter-width}),
+    container-md: calc(#{$md-min} + #{$gutter-width}),
+    container-lg: calc(#{$lg-min} + #{$gutter-width})
+  );
+
+  @return $grid;
+}

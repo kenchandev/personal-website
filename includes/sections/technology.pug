@@ -1,4 +1,4 @@
-include ../mixins/technology-items
+include ../mixins/technology-grid
 
 -
   var technologyGraphic = '<file-svg src="assets/images/technology.svg" />';
@@ -8,10 +8,13 @@ section.section.section--bg-alt.edge.edge--top
     img.abstract-shape(src=require("./assets/images/abstract-shape.svg"), alt="Abstract Shape")
     img.abstract-shape(src=require("./assets/images/abstract-shape.svg"), alt="Abstract Shape")
     div.technology
-      h3.technology__title
-        span Technology
+      h2.technology__title
+        a.permalink.visually-hidden(href="#technology", aria-label="Technology Permalink")
+        span(tabindex="0")
+          span.visually-hidden Ken's Skill Set
+          span Technology
       div.row.middle-xs
         div.col-xs-12.col-sm-6.col-md-6.col-lg-6
-          div.technology__graphic !{technologyGraphic}
+          div.technology__graphic(role="img", tabindex="0", aria-label="A modern workstation. On a white table, an iMac displays Visual Studio Code, a coding editor Ken uses on a daily basis.") !{technologyGraphic}
         div.col-xs-12.col-sm-6.col-md-6.col-lg-6
-          +technologyItems()
+          +technologyGrid()

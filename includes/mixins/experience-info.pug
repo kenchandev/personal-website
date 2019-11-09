@@ -2,7 +2,7 @@
   var experiences = [
     {
       title: 'Civic Graph',
-      alias: 'msft',
+      alias: 'civic-graph',
       href: 'https://www.civicgraph.io/',
       caption: 'A crowdsourced, network visualization of the civic technology community. Built at Microsoft.',
       role: 'Full-Stack Engineer',
@@ -10,29 +10,36 @@
         start: 'May 2014',
         end: 'July 2015'
       },
+      company: 'Microsoft',
       pressCoverage: [
         {
-          imageUrl: 'politico.svg',
+          id: 'politico',
+          publisher: 'Politico',
           articleUrl: 'https://www.politico.com/states/new-york/city-hall/story/2015/02/civic-tech-contestants-range-from-microsoft-to-mta-and-housing-087247'
         },
         {
-          imageUrl: 'omidyar-network.svg',
+          id: 'omidyar-network',
+          publisher: 'Omidyar Network',
           articleUrl: 'https://www.omidyar.com/insights/building-civic-tech-sector-last'
         },
         {
-          imageUrl: 'government-technology.svg',
+          id: 'government-technology',
+          publisher: 'Government Technology, a Division of e.Republic',
           articleUrl: 'http://www.govtech.com/data/Microsoft-Civic-Graph-Charts-the-New-World-of-Civic-Tech.html'
         },
         {
-          imageUrl: 'kantar.svg',
+          id: 'kantar',
+          publisher: 'Information is Beautiful',
           articleUrl: 'https://www.informationisbeautifulawards.com/showcase/724-civic-graph'
         },
         {
-          imageUrl: 'knight-foundation.svg',
+          id: 'knight-foundation',
+          publisher: 'Knight Foundation',
           articleUrl: 'https://knightfoundation.org/articles/engaging-citizens-government-civic-life'
         },
         {
-          imageUrl: 'personal-democracy-media.svg',
+          id: 'personal-democracy-media',
+          publisher: 'Personal Democracy Media',
           articleUrl: 'https://personaldemocracy.com/media/civic-graph-put-yourself-map'
         }
       ],
@@ -58,37 +65,46 @@
         start: 'August 2015',
         end: 'Present'
       },
+      company: 'Smart Alec',
       pressCoverage: [
         {
-          imageUrl: 'cheddar.svg',
+          id: 'cheddar',
+          publisher: 'Cheddar',
           articleUrl: 'https://cheddar.vhx.tv/cheddar-archive/videos/cheddar-cheddar-live-s14-e022317-j-full-mezz-hd-en-us'
         },
         {
-          imageUrl: 'alley-watch.svg',
+          id: 'alley-watch',
+          pulbisher: 'Alley Watch',
           articleUrl: 'http://www.alleywatch.com/2016/11/nyc-startup-smart-alec-actually-want-around/'
         },
         {
-          imageUrl: 'metro.svg',
+          id: 'metro',
+          publisher: 'Metro',
           articleUrl: 'http://www.metro.us/lifestyle/tutoring-on-demand/zsJpex---tZDKJV3Akej7Q/'
         },
         {
-          imageUrl: 'built-in-nyc.svg',
+          id: 'built-in-nyc',
+          publisher: 'Built In NYC',
           articleUrl: 'http://www.builtinnyc.com/2016/04/20/nyc-startups-beta'
         },
         {
-          imageUrl: 'technical-ly.svg',
+          id: 'technical-ly',
+          publisher: 'Technical.ly',
           articleUrl: 'http://technical.ly/brooklyn/2015/07/24/quedify-uber-tutoring-nathan-kane/'
         },
         {
-          imageUrl: 'huffington-post.svg',
+          id: 'huffington-post',
+          publisher: 'Huffington Post',
           articleUrl: 'http://www.huffingtonpost.com/entry/57e43e5be4b00267764fbc14'
         },
         {
-          imageUrl: 'nymetro-parents.svg',
+          id: 'nymetro-parents',
+          publisher: 'NY Metro Parents',
           articleUrl: 'http://www.nymetroparents.com/rockland/article/Rockland-Schools-and-Education-Guide'
         },
         {
-          imageUrl: 'business-insider.svg',
+          id: 'business-insider',
+          publisher: 'Business Insider',
           articleUrl: 'https://www.businessinsider.com/wework-recruiting-testing-invite-only-startup-incubator-area-51-new-york-2017-12'
         }
       ],
@@ -135,25 +151,42 @@ mixin experienceInfo(i)
       mobileSvg = `<file-svg src="assets/images/mobile.svg" data-callback="${ experience.renderHomepageCallback }" data-target-id="Mobile"  />`;
 
   div.experience(class=`experience--${experience.alias}`)
-    h3.experience__title
-      a(href=experience.href, target="_blank", rel="noreferrer")= experience.title
+    h2.experience__title(id=experience.alias)
+      a.permalink.visually-hidden(href=`#${experience.alias}`, aria-label=`${experience.title} Permalink`)
+      span(tabindex="0")
+        span.visually-hidden Project Name
+        span= experience.title
     div.row
       div.col-xs-12.col-sm-5.col-md-5.col-lg-5
-        p.experience__caption= experience.caption
-        p.experience__role= `${experience.role} (${experience.duration.start} - ${experience.duration.end})`
-        p.experience__technologies= experience.technologies.join(', ')
+        p.experience__caption(tabindex="0")
+          span.visually-hidden Brief Overview Of This Project
+          span= experience.caption
+        p.experience__role(tabindex="0")
+          span.visually-hidden Ken's Role At #{experience.company} For This Project and How Long He Actively Worked On This Project
+          span= `${experience.role} (${experience.duration.start} - ${experience.duration.end})`
+        p.experience__technologies(tabindex="0")
+          span.visually-hidden Technologies Used For This Project
+          span= experience.technologies.join(', ')
       div.col-sm-1.col-md-1.col-lg-1
       div.col-xs-12.col-sm-6.col-md-6.col-lg-6
         if experience.description
-          p.experience__description= experience.description
+          p.experience__description(tabindex="0")
+            span.visually-hidden Additional Information About This Project
+            span= experience.description
         else if experience.projectFeatures
-          ul.experience__project-features
-            each feature in experience.projectFeatures
+          ul.experience__project-features(tabindex="0", aria-label="Project Features")
+            each feature, i in experience.projectFeatures
               li.experience__project-features__item
-                a(id=`pf-${feature.id}`, href="javascript:void")= feature.label
-        div
-          a.btn.btn--secondary(href=`#${modalId}`, data-modal-open) Press Coverage
-    div.viewport-device
+                a(id=`pf-${feature.id}`, href="javascript:void(0)")= feature.label
+                if i === experience.projectFeatures.length - 1
+                  a.visually-hidden.repeat-features(href=`#pf-${experience.projectFeatures[0].id}`, onclick="event.preventDefault();", aria-labelledby="rf-label") ↳
+                  span.visually-hidden#rf-label Press Enter to Repeat Features
+        ul.experience__actions(tabindex="0", aria-label="Additional Links")
+          li.experience__actions__item
+            a.btn.btn--primary(href=experience.href, target="_blank", rel="noreferrer noopener") Visit Project
+          li.experience__actions__item
+            a.btn.btn--secondary(href="javascript:void(0)", data-modal-id=modalId, data-modal-open) Press Coverage
+    div.viewport-device(role="figure", tabindex="0", aria-label=`Screenshots of ${experience.title}`)
       div.browser !{browserSvg}
       div.mobile !{mobileSvg}
       div.lds-ring.lds-ring--blue
@@ -161,9 +194,10 @@ mixin experienceInfo(i)
         div
         div
         div
-    div.experience__press-coverage(id=modalId)
-      ul.coverage-list(class=`coverage-list--${experience.alias}`)
-        each report in experience.pressCoverage
+    div.experience__press-coverage(id=modalId, data-modal-label="List of Press Coverage")
+      ul.coverage-list(class=`coverage-list--${experience.alias}`, tabindex="0", aria-label="List of Press Coverage")
+        each press in experience.pressCoverage
           li.coverage-list__item
-            a(href=report.articleUrl)
-              img(src=require(`./assets/images/${report.imageUrl}`))
+            a(href=press.articleUrl, aria-labelledby=`${experience.alias}-${press.id}`)
+              span.visually-hidden(id=`${experience.alias}-${press.id}`) Article by #{press.publisher}
+              img(src=require(`./assets/images/${press.id}.svg`), alt=press.publisher, aria-hidden="true")

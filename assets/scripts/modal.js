@@ -1,7 +1,11 @@
+import createFocusTrap from "focus-trap";
+import { hasClass, addClass, removeClass } from "./utils";
+
 const defaults = {
   modal: ".modal",
   modalInner: ".modal-inner",
   modalContent: ".modal-content",
+  ariaLabel: "Modal",
   open: "[data-modal-open]",
   close: "[data-modal-close]",
   page: "body",
@@ -58,38 +62,27 @@ function getNode(selector, parent) {
   return node;
 }
 
-function addClass(el, className) {
+function addAriaLabel(el, ariaLabel) {
   if (!(el instanceof HTMLElement)) {
     throwError("Not a valid HTML element.");
   }
 
-  el.setAttribute(
-    "class",
-    el.className
-      .split(" ")
-      .filter(cn => cn !== className)
-      .concat(className)
-      .join(" ")
-  );
+  el.setAttribute("aria-label", ariaLabel);
 }
 
-function removeClass(el, className) {
+function removeAriaLabel(el) {
   if (!(el instanceof HTMLElement)) {
     throwError("Not a valid HTML element.");
   }
 
-  el.setAttribute(
-    "class",
-    el.className
-      .split(" ")
-      .filter(cn => cn !== className)
-      .join(" ")
-  );
+  el.removeAttribute("aria-label");
 }
 
 function getElementContext(e) {
-  if (e && typeof e.hash === "string") {
-    return document.querySelector(e.hash);
+  const id = e instanceof HTMLElement && e.getAttribute("data-modal-id");
+
+  if (e && typeof id === "string") {
+    return document.querySelector(`#${id}`);
   } else if (typeof e === "string") {
     return document.querySelector(e);
   }
@@ -146,6 +139,72 @@ export default class Modal {
 
     this.addLoadedCssClass();
     this.listen();
+
+    const observer = new MutationObserver(mutationsList => {
+      for (let mutation of mutationsList) {
+        if (
+          mutation.attributeName === "class" &&
+          hasClass(mutation.target, "modal--sr-visible")
+        ) {
+          addClass(this.dom.page, this.settings.class);
+        }
+      }
+    });
+
+    observer.observe(this.dom.modal, {
+      attributeFilter: ["class"],
+      attributes: true
+    });
+
+    const closeBtn = document.querySelector(".modal-exit");
+
+    const onCloseBtnFocus = e => {
+      e.target.setAttribute("tabindex", "0");
+    };
+
+    const focusTrap = createFocusTrap(".modal", {
+      clickOutsideDeactivates: true,
+      initialFocus: e => {
+        return this.dom.modal;
+      },
+      onActivate: () => {
+        const requestId = window.requestAnimationFrame(() => {
+          closeBtn.addEventListener("focusin", onCloseBtnFocus, false);
+
+          window.cancelAnimationFrame(requestId);
+        });
+      },
+      onDeactivate: () => {
+        const requestId = window.requestAnimationFrame(() => {
+          closeBtn.removeEventListener("focusin", onCloseBtnFocus);
+          closeBtn.setAttribute("tabindex", "1");
+
+          removeClass(
+            document.querySelector(".prev-focus-trap"),
+            "prev-focus-trap"
+          );
+
+          window.cancelAnimationFrame(requestId);
+        });
+      },
+      setReturnFocus: ".prev-focus-trap"
+    });
+
+    this.settings.onOpen = e => {
+      const requestId = window.requestAnimationFrame(() => {
+        focusTrap.activate();
+
+        window.cancelAnimationFrame(requestId);
+      });
+    };
+
+    this.settings.onClose = e => {
+      const requestId = window.requestAnimationFrame(() => {
+        focusTrap.deactivate();
+
+        window.cancelAnimationFrame(requestId);
+      });
+    };
   }
 
   getDomNodes() {
@@ -176,8 +235,8 @@ export default class Modal {
   }
 
   open(allMatches, e) {
-    const { page } = this.dom;
-    const { onBeforeOpen, onOpen } = this.settings;
+    const { modal, modalContent } = this.dom;
+    const { onBeforeOpen, onOpen, ariaLabel } = this.settings;
 
     this.releaseNode(this.current);
     this.current = getElementContext(allMatches);
@@ -191,8 +250,13 @@ export default class Modal {
       onBeforeOpen.call(this, e);
     }
 
+    this.dom.modal.setAttribute("tabindex", "0");
+    addAriaLabel(
+      modal,
+      this.current.getAttribute("data-modal-label") || ariaLabel
+    );
+    addClass(modal, "modal--sr-visible");
     this.captureNode(this.current);
-    addClass(page, this.settings.class);
     this.setOpenId(this.current.id);
     this.isOpen = true;
 
@@ -216,7 +280,12 @@ export default class Modal {
   }
 
   close(e) {
-    const { transitions, transitionEnd, onBeforeClose } = this.settings;
+    const {
+      modalContent,
+      transitions,
+      transitionEnd,
+      onBeforeClose
+    } = this.settings;
     const hasTransition = this.detectTransition();
 
     if (this.isOpen) {
@@ -226,7 +295,10 @@ export default class Modal {
         onBeforeClose.call(this, e);
       }
 
+      this.dom.modal.setAttribute("tabindex", "-1");
       removeClass(this.dom.page, this.settings.class);
+      removeClass(this.dom.modal, "modal--sr-visible");
+      removeAriaLabel(this.dom.modal);
 
       if (transitions && transitionEnd && hasTransition) {
         this.closeModalWithTransition(e);
@@ -312,6 +384,9 @@ export default class Modal {
 
     if (matchedNode) {
       e.preventDefault();
+
+      addClass(e.target, "prev-focus-trap");
+
       this.open(matchedNode, e);
     }
   }
@@ -321,6 +396,7 @@ export default class Modal {
 
     if (matches(e, close)) {
       e.preventDefault();
+
       this.close(e);
     }
   }

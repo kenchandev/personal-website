@@ -1,5 +1,11 @@
-header.header
-  nav.nav
+header.header(id="top")
+  div.skip-links
+    ul.skip-links__list
+      li.skip-links__list__item
+        a.visually-hidden#skip-content(href="#hero") Skip to Content
+      li.skip-links__list__item
+        a.visually-hidden#skip-contact(href="#contact-form") Skip to Contact Form
+  nav.nav#global-nav(aria-label="Global Navigation")
     ul.nav__list
       li.nav__list__item
         a.btn.btn--primary.btn--lg(href="javascript:void(0)") BLOG

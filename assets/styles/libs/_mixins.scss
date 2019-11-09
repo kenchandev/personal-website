@@ -1,22 +1,22 @@
 @mixin for-size($size) {
   @if $size == phone-portrait-up {
-    @media only screen and (min-width: 20rem) {
+    @media only screen and (min-width: #{map-get($breakpoints, xxs)}em) {
       @content;
     }
   } @else if $size == phone-landscape-up {
-    @media only screen and (min-width: 30rem) {
+    @media only screen and (min-width: #{map-get($breakpoints, xs)}em) {
       @content;
     }
   } @else if $size == tablet-portrait-up {
-    @media only screen and (min-width: 48rem) {
+    @media only screen and (min-width: #{map-get($breakpoints, sm)}em) {
       @content;
     }
   } @else if $size == tablet-landscape-up {
-    @media only screen and (min-width: 64rem) {
+    @media only screen and (min-width: #{map-get($breakpoints, md)}em) {
       @content;
     }
   } @else if $size == desktop-up {
-    @media only screen and (min-width: 75rem) {
+    @media only screen and (min-width: #{map-get($breakpoints, lg)}em) {
       @content;
     }
   }
@@ -174,4 +174,12 @@
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
 }

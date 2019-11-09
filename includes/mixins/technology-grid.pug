@@ -1,0 +1,35 @@
+-
+  var technologies = [
+    { id: 'javascript', label: 'JavaScript' },
+    { id: 'typescript', label: 'TypeScript' },
+    { id: 'node', label: 'Node.js' },
+    { id: 'angularjs', label: 'AngularJS' },
+    { id: 'react', label: 'React' },
+    { id: 'd3', label: 'D3.js' },
+    { id: 'jquery', label: 'jQuery' },
+    { id: 'webpack', label: 'Webpack' },
+    { id: 'html5', label: 'HTML5' },
+    { id: 'css3', label: 'CSS3' },
+    { id: 'python', label: 'Python' },
+    { id: 'mongodb', label: 'MongoDB' },
+    { id: 'neo4j', label: 'Neo4j' },
+    { id: 'postgresql', label: 'PostgreSQL' },
+    { id: 'redis', label: 'Redis' },
+    { id: 'aws', label: 'AWS' },
+    { id: 'circleci', label: 'CircleCI' },
+    { id: 'docker', label: 'Docker' },
+    { id: 'git', label: 'Git' },
+    { id: 'sketch', label: 'Sketch' }
+  ];
+
+mixin technologyGrid()
+  div(role="grid", tabindex="0", aria-label="Technologies Ken Is Proficient With")
+    each technology, index in technologies
+      if index % 4 === 0
+        | <div class="row row--mxxs row--msm around-xs" role="row">
+      div.col-xs-3.col--pxxs.col--psm.col-sm-3.col-md-3.col-lg-3(role="gridcell")
+        div.technology__item(role="img", aria-labelledby=technology.id, tabindex="0")
+          img.technology__item__img(src=require(`./assets/images/icons/${ technology.id }.svg`), alt=technology.label, aria-hidden="true")
+          p.technology__item__label(id=technology.id)= technology.label
+      if index % 4 === 3 || index === technologies.length - 1
+        | </div>

@@ -1,5 +1,7 @@
 import * as OfflinePluginRuntime from "offline-plugin/runtime";
 
+import "focus-visible";
+
 import CivicGraphDesktopHomepagePng from "../images/experiences/civic-graph/desktop/homepage.png";
 import SmartAlecDesktopHomepagePng from "../images/experiences/smart-alec/desktop/homepage.png";
 import CivicGraphMobileHomepagePng from "../images/experiences/civic-graph/mobile/homepage.png";
@@ -19,9 +21,13 @@ import {
 import Form from "./form";
 import Modal from "./modal";
 import Experience from "./experience";
+import BackToTopLink from "./back-to-top-link";
 
-let pressCoverageModal = new Modal();
-let contactForm = new Form(".form.form--contact-me", "submit");
+let modal = new Modal();
+
+let backToTopLink = new BackToTopLink(".back-to-top", "skip-content", "top");
+
+let contactForm = new Form(".form.form--contact", "submit", modal);
 
 let civicGraph = new Experience(
   "msft",
