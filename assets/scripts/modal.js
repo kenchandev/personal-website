@@ -42,9 +42,10 @@ function transitionEndVendorSniff() {
     { key: "WebkitTransition", value: "webkitTransitionEnd" }
   ];
 
-  return find(transitions, ({ key }) => typeof el.style[key] !== "undefined")(
-    "value"
-  );
+  return find(
+    transitions,
+    ({ key }) => typeof el.style[key] !== "undefined"
+  )("value");
 }
 
 function isPopulatedArray(arr) {
@@ -235,7 +236,7 @@ export default class Modal {
   }
 
   open(allMatches, e) {
-    const { modal, modalContent } = this.dom;
+    const { modal } = this.dom;
     const { onBeforeOpen, onOpen, ariaLabel } = this.settings;
 
     this.releaseNode(this.current);
@@ -280,12 +281,7 @@ export default class Modal {
   }
 
   close(e) {
-    const {
-      modalContent,
-      transitions,
-      transitionEnd,
-      onBeforeClose
-    } = this.settings;
+    const { transitions, transitionEnd, onBeforeClose } = this.settings;
     const hasTransition = this.detectTransition();
 
     if (this.isOpen) {
