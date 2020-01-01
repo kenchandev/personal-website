@@ -10,56 +10,44 @@
   @media only screen and (min-width: 30rem) {
     left: -5em;
     animation-name: blimp_30rem_36rem_42rem;
-    bottom: 20em;
-  }
-
-  @media only screen and (min-width: 36rem) {
-    bottom: 24em;
+    bottom: 14em;
   }
 
   @media only screen and (min-width: 42rem) {
-    bottom: 27em;
+    bottom: 15em;
   }
 
   @media only screen and (min-width: 48rem) {
     left: -9em;
     animation-name: blimp_48rem_56rem;
-    bottom: 26em;
-  }
-
-  @media only screen and (min-width: 56rem) {
-    bottom: 30em;
+    bottom: 18em;
   }
 
   @media only screen and (min-width: 64rem) {
     left: -12.5em;
     animation-name: blimp_64rem_70rem;
-    bottom: 30em;
-  }
-
-  @media only screen and (min-width: 70rem) {
-    bottom: 32em;
+    bottom: 21em;
   }
 
   @media only screen and (min-width: 75rem) {
     left: -16.25em;
     animation-name: blimp_75rem_80rem_85rem;
-    bottom: 30em;
+    bottom: 23em;
   }
 
   @media only screen and (min-width: 80rem) {
-    bottom: 33em;
+    bottom: 25em;
   }
 
   @media only screen and (min-width: 85rem) {
-    bottom: 36em;
+    bottom: 24em;
   }
 
   svg {
     height: 4em;
 
     @media only screen and (min-width: 30rem) {
-      height: 4.25em;
+      height: 4.375em;
     }
 
     @media only screen and (min-width: 48rem) {

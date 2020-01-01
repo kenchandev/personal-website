@@ -7,7 +7,7 @@ const OfflinePlugin = require("offline-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
-module.exports = isProd => {
+module.exports = (isProd, isEnvDefined) => {
   return {
     entry: {
       "assets/scripts/app": path.resolve(
@@ -36,13 +36,23 @@ module.exports = isProd => {
         },
         {
           test: /\.scss$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: "../"
+              }
+            },
+            "css-loader",
+            "sass-loader"
+          ]
         },
         {
           test: /\.(jpg|png|gif|svg)$/,
           use: {
             loader: "file-loader",
             options: {
+              publicPath: isEnvDefined ? "/dist/" : "/",
               name: "[path][name]-[hash].[ext]"
             }
           }
@@ -52,7 +62,7 @@ module.exports = isProd => {
           use: {
             loader: "file-loader",
             options: {
-              publicPath: "/",
+              publicPath: isEnvDefined ? "/dist/" : "/",
               name: "[path][name]-[hash].[ext]"
             }
           }

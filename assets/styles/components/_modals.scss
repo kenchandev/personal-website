@@ -4,6 +4,7 @@
 
 .vanilla-modal .modal {
   display: block;
+  visibility: hidden;
   position: fixed;
   content: "";
   top: 0;
@@ -19,6 +20,7 @@
   overflow-y: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+  transition: opacity 0.2s;
 }
 
 .vanilla-modal .modal > * {
@@ -37,10 +39,17 @@
   content: "";
 }
 
+.modal-visible {
+  overflow: hidden;
+}
+
+.vanilla-modal.modal-visible .modal.modal--sr-visible {
+  visibility: visible;
+}
+
 .vanilla-modal.modal-visible .modal {
   z-index: 99;
   opacity: 1;
-  transition: opacity 0.2s;
 }
 
 .modal-inner {
@@ -78,16 +87,22 @@
   }
 }
 
-[data-modal-close] {
+.modal-exit[data-modal-close] {
+  -webkit-appearance: none;
+  padding: 0;
+  border: 0;
   position: absolute;
   z-index: 2;
-  right: 10px;
-  top: 10px;
-  width: 2rem;
-  height: 2rem;
-  line-height: 2rem;
+  right: 0.5em;
+  top: 0.5em;
+  width: 1em;
+  height: 1em;
   font-size: 2rem;
   cursor: pointer;
   text-align: center;
   background: #fff;
+
+  svg {
+    height: 100%;
+  }
 }

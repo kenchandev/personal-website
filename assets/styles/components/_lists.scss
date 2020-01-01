@@ -15,26 +15,31 @@
     position: absolute;
     text-align: left;
     font-size: 1em;
-    left: calc(112px + 1.25em);
-    top: 6.25em;
+    left: calc(96px + 1.25em);
+    top: 6em;
+  }
+
+  @media only screen and (min-width: 36rem) {
+    left: calc(112px + 1.375em);
+    top: 6.625em;
   }
 
   @media only screen and (min-width: 48rem) {
     font-size: 1.125em;
-    left: calc(112px + 1.25em);
-    top: 6em;
+    left: calc(112px + 1.5em);
+    top: 6.125em;
   }
 
   @media only screen and (min-width: 64rem) {
     font-size: 1.25em;
-    left: calc(128px + 1.25em);
-    top: 6em;
+    left: calc(128px + 1.5em);
+    top: 6.25em;
   }
 
   @media only screen and (min-width: 75rem) {
     font-size: 1.5em;
-    left: calc(150px + 1.075em);
-    top: 6em;
+    left: calc(150px + 1.5em);
+    top: 6.125em;
   }
 
   &__item {

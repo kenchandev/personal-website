@@ -3,29 +3,30 @@
     blimpGraphic = '<file-svg src="../../assets/images/blimp.svg" />';
 
 section.section.section--bg-empty
-  div.section__content
+  div.section__content#hero
     div.profile
-      div.profile__logo !{profileLogo}
+      a.route-skip-link.visually-hidden(href="#global-nav", aria-label="Back to Global Navigation", title="Skip to Global Navigation")
+      div.profile__logo(role="img", tabindex="0", aria-label="Ken Chan's Logo") !{profileLogo}
       h1.profile__name Ken Chan
-      ul.occupations
-        li.occupations__item Software Engineer
-        li.occupations__item Web Architect
+      ul.occupations(tabindex="0", aria-label="Ken's Professional Titles")
+        li.occupations__item(tabindex="0") Software Engineer
+        li.occupations__item(tabindex="0") Web Architect
     hr.divider
-    p.description Building robust and insightful web applications, open-source software and data visualizations.
-    ul.social-icons
+    p.description(tabindex="0") Welcome! My name is Ken, and I develop web applications and data visualizations. I strive to design, build and deliver reliable products.
+    ul.social-icons(tabindex="0", aria-label="Ken's Online Portfolio and Social Links")
       li.social-icons__item
-        a(href="https://github.com/kenchandev", target="_blank", rel="noreferrer")
+        a(href="https://github.com/kenchandev", target="_blank", rel="noreferrer noopener")
           img(src=require("../../assets/images/icons/github.svg"), alt="GitHub")
       li.social-icons__item
-        a(href="https://codepen.io/kenchandev", target="_blank", rel="noreferrer")
+        a(href="https://codepen.io/kenchandev", target="_blank", rel="noreferrer noopener")
           img(src=require("../../assets/images/icons/codepen.svg"), alt="Codepen")
       li.social-icons__item
-        a(href="https://linkedin.com/in/kenchandev", target="_blank", rel="noreferrer")
+        a(href="https://linkedin.com/in/kenchandev", target="_blank", rel="noreferrer noopener")
           img(src=require("../../assets/images/icons/linkedin.svg"), alt="LinkedIn")
       li.social-icons__item
-        a(href="https://twitter.com/thiskenchan", target="_blank", rel="noreferrer")
+        a(href="https://twitter.com/thiskenchan", target="_blank", rel="noreferrer noopener")
           img(src=require("../../assets/images/icons/twitter.svg"), alt="Twitter")
-    div.city-graphic
+    div.city-graphic(role="figure", tabindex="0", aria-label="An animated, SVG graphic of a dazzling New York City skyline. The cityscape features tall buildings, sparse greenery and floating clouds. A blimp flies across, and its LED display shows three words: development, staging and production. Ken is well-versed in best practices and integrating multiple environments into the workflow of an application. This process ensures the application meets high quality/performance standards, deploys smoothly and is timely delivered to end-users.")
       img#cloud-1.cloud.cloud--1(src=require("../../assets/images/cloud-1.svg"), alt="Cloud")
       img#cloud-2.cloud.cloud--2(src=require("../../assets/images/cloud-2.svg"), alt="Cloud")
       img#cloud-3.cloud.cloud--3(src=require("../../assets/images/cloud-3.svg"), alt="Cloud")
@@ -35,5 +36,5 @@ section.section.section--bg-empty
       img#cloud-7.cloud.cloud--loop.cloud--1(src=require("../../assets/images/cloud-1.svg"), alt="Cloud")
       img#cloud-8.cloud.cloud--loop.cloud--2(src=require("../../assets/images/cloud-2.svg"), alt="Cloud")
       img#cloud-9.cloud.cloud--loop.cloud--3(src=require("../../assets/images/cloud-3.svg"), alt="Cloud")
-      div.blimp !{blimpGraphic}
-      img.city-graphic__img(src=require("../../assets/images/city.svg"), alt="City Graphic")
+      div.blimp(role="img", aria-label="Flying Blimp") !{blimpGraphic}
+      img.city-graphic__img(src=require("../../assets/images/city.svg"), alt="City Skyline")

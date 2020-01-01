@@ -44,6 +44,10 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
   height: 2.375em;
 
   @media only screen and (min-width: 30rem) {
+    height: 2.875em;
+  }
+
+  @media only screen and (min-width: 48rem) {
     height: 3.375em;
   }
 }
@@ -52,6 +56,10 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
   height: 1.25em;
 
   @media only screen and (min-width: 30rem) {
+    height: 1.75em;
+  }
+
+  @media only screen and (min-width: 48rem) {
     height: 2.25em;
   }
 }
@@ -60,6 +68,10 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
   height: 2.25em;
 
   @media only screen and (min-width: 30rem) {
+    height: 2.75em;
+  }
+
+  @media only screen and (min-width: 48rem) {
     height: 3.25em;
   }
 }
@@ -73,12 +85,12 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
 #cloud-1 {
   margin-left: 880px;
 
-  @include responsive-bottom(21em 23em 26em 25em 29em 29em 31em 29em 32em 35em);
+  @include responsive-bottom(14em 13em 14em 16em 17em 20em 20em 24em 24em 23em);
 }
 
 #cloud-2 {
   margin-left: 1580px;
-  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+  @include responsive-bottom(15em 14em 15em 17em 18em 21em 21em 25em 25em 24em);
 }
 
 #cloud-3,
@@ -90,20 +102,20 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
   margin-left: 1680px;
   animation-duration: 120s;
 
-  @include responsive-bottom(18em 20em 23em 22em 26em 26em 28em 26em 29em 32em);
+  @include responsive-bottom(11em 10em 11em 13em 14em 17em 17em 21em 21em 20em);
 }
 
 #cloud-4 {
   animation-duration: 119.9s;
 
-  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+  @include responsive-bottom(15em 14em 15em 17em 18em 21em 21em 25em 25em 24em);
 }
 
 #cloud-5 {
   animation-delay: 18s;
   animation-duration: 120.2s;
 
-  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+  @include responsive-bottom(15em 14em 15em 17em 18em 21em 21em 25em 25em 24em);
 }
 
 #cloud-6,
@@ -111,28 +123,26 @@ $min-widths: 30rem 36rem 42rem 48rem 56rem 64rem 70rem 75rem 80rem 85rem;
   animation-delay: 42s;
   animation-duration: 120.3s;
 
-  @include responsive-bottom(19em 21em 24em 23em 27em 27em 29em 27em 30em 33em);
+  @include responsive-bottom(12em 11em 12em 14em 15em 18em 18em 22em 22em 21em);
 }
 
 #cloud-7 {
   animation-delay: 60s;
   animation-duration: 119.9s;
 
-  @include responsive-bottom(24em 26em 29em 28em 32em 32em 34em 32em 35em 38em);
+  @include responsive-bottom(17em 16em 17em 19em 20em 23em 23em 27em 27em 26em);
 }
 
 #cloud-8 {
   animation-delay: 72s;
   animation-duration: 120.1s;
 
-  @include responsive-bottom(22em 24em 27em 26em 30em 30em 32em 30em 33em 36em);
+  @include responsive-bottom(15em 14em 15em 17em 18em 21em 21em 25em 25em 24em);
 }
 
 #cloud-9 {
   animation-delay: 108s;
   animation-duration: 120.15s;
 
-  @include responsive-bottom(20em 22em 25em 24em 28em 28em 30em 28em 31em 34em);
+  @include responsive-bottom(13em 12em 13em 15em 16em 19em 19em 23em 23em 22em);
 }
-
-// @include responsive-bottom(20em 24em 27em 26em 30em 30em 32em 30em 33em 36em);

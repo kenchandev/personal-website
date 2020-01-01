@@ -48,24 +48,6 @@
 //   }
 // }
 
-:root {
-  --gutter-width: 1rem;
-  --outer-margin: 2rem;
-  --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
-  --half-gutter-width: calc((var(--gutter-width) * 0.5));
-  --xs-min: 30;
-  --sm-min: 48;
-  --md-min: 64;
-  --lg-min: 75;
-  --screen-xs-min: var(--xs-min) em;
-  --screen-sm-min: var(--sm-min) em;
-  --screen-md-min: var(--md-min) em;
-  --screen-lg-min: var(--lg-min) em;
-  --container-sm: calc(var(--sm-min) + var(--gutter-width));
-  --container-md: calc(var(--md-min) + var(--gutter-width));
-  --container-lg: calc(var(--lg-min) + var(--gutter-width));
-}
-
 .container-fluid,
 .container {
   margin-right: auto;
@@ -73,8 +55,8 @@
 }
 
 .container-fluid {
-  padding-right: var(--outer-margin, 2rem);
-  padding-left: var(--outer-margin, 2rem);
+  padding-right: map-get($grid, outer-margin);
+  padding-left: map-get($grid, outer-margin);
 }
 
 .row {
@@ -83,8 +65,8 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: var(--gutter-compensation, -0.5rem);
-  margin-left: var(--gutter-compensation, -0.5rem);
+  margin-right: map-get($grid, gutter-compensation);
+  margin-left: map-get($grid, gutter-compensation);
 }
 
 .row.reverse {
@@ -123,8 +105,8 @@
 .col-xs-offset-12 {
   box-sizing: border-box;
   flex: 0 0 auto;
-  padding-right: var(--half-gutter-width, 0.5rem);
-  padding-left: var(--half-gutter-width, 0.5rem);
+  padding-right: map-get($grid, half-gutter-width);
+  padding-left: map-get($grid, half-gutter-width);
 }
 
 .col-xs {
@@ -286,7 +268,7 @@
 
 @media only screen and (min-width: 48em) {
   .container {
-    width: var(--container-sm, 46rem);
+    width: map-get($grid, container-sm);
   }
 
   .col-sm,
@@ -317,8 +299,8 @@
   .col-sm-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 0.5rem);
-    padding-left: var(--half-gutter-width, 0.5rem);
+    padding-right: map-get($grid, half-gutter-width);
+    padding-left: map-get($grid, half-gutter-width);
   }
 
   .col-sm {
@@ -481,7 +463,7 @@
 
 @media only screen and (min-width: 64em) {
   .container {
-    width: var(--container-md, 61rem);
+    width: map-get($grid, container-md);
   }
 
   .col-md,
@@ -512,8 +494,8 @@
   .col-md-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 0.5rem);
-    padding-left: var(--half-gutter-width, 0.5rem);
+    padding-right: map-get($grid, half-gutter-width);
+    padding-left: map-get($grid, half-gutter-width);
   }
 
   .col-md {
@@ -676,7 +658,7 @@
 
 @media only screen and (min-width: 75em) {
   .container {
-    width: var(--container-lg, 71rem);
+    width: map-get($grid, container-lg);
   }
 
   .col-lg,
@@ -707,8 +689,8 @@
   .col-lg-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 0.5rem);
-    padding-left: var(--half-gutter-width, 0.5rem);
+    padding-right: map-get($grid, half-gutter-width);
+    padding-left: map-get($grid, half-gutter-width);
   }
 
   .col-lg {
