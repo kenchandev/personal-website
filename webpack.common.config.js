@@ -7,7 +7,7 @@ const OfflinePlugin = require("offline-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
-module.exports = (isProd, isEnvDefined) => {
+module.exports = isProd => {
   return {
     entry: {
       "assets/scripts/app": path.resolve(
@@ -36,24 +36,22 @@ module.exports = (isProd, isEnvDefined) => {
         },
         {
           test: /\.scss$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: "../"
-              }
-            },
-            "css-loader",
-            "sass-loader"
-          ]
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
         },
         {
           test: /\.(jpg|png|gif|svg)$/,
           use: {
             loader: "file-loader",
             options: {
-              publicPath: isEnvDefined ? "/dist/" : "/",
-              name: "[path][name]-[hash].[ext]"
+              publicPath: (url, resourcePath, context) => {
+                if (/paper-clip\.svg/.test(resourcePath)) {
+                  return `../../${url}`;
+                }
+
+                return url;
+              },
+              name: "[path][name]-[hash].[ext]",
+              esModule: false
             }
           }
         },
@@ -62,8 +60,9 @@ module.exports = (isProd, isEnvDefined) => {
           use: {
             loader: "file-loader",
             options: {
-              publicPath: isEnvDefined ? "/dist/" : "/",
-              name: "[path][name]-[hash].[ext]"
+              publicPath: "../../",
+              name: "[path][name]-[hash].[ext]",
+              esModule: false
             }
           }
         }
