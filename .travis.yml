@@ -9,19 +9,34 @@ node_js:
   - "lts/*"
   - 10
 
+cache: npm
+
 script:
   - npm install
   - npm run format:check
   - npm run lint
-  - npm run build:prod
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  local-dir: dist/
-  github-token: $GITHUB_API_KEY
-  keep-history: true
-  repo: kenchandev/kenchandev.github.io
-  target-branch: master
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: build-prod
+      name: "Build Production Site"
+      os: linux
+      node_js: "lts/*"
+      script: npm run build:prod
+      if: branch = master
+    - stage: deploy
+      name: "Deploy to GitHub Pages"
+      os: linux
+      node_js: "lts/*"
+      script: echo "Deploying to GitHub Pages..."
+      if: branch = master
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        local-dir: dist/
+        github-token: $GITHUB_API_KEY
+        keep-history: true
+        repo: kenchandev/kenchandev.github.io
+        target-branch: master
+        on:
+          branch: master
