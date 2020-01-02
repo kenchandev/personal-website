@@ -18,17 +18,11 @@ script:
 
 jobs:
   include:
-    - stage: build-prod
-      name: "Build Production Site"
+    - stage: prod-build-deploy
+      name: "Build Production Site and Deploy to GitHub Pages"
       os: linux
       node_js: "lts/*"
-      script: npm run build:prod
-      if: branch = master
-    - stage: deploy
-      name: "Deploy to GitHub Pages"
-      os: linux
-      node_js: "lts/*"
-      script: echo "Deploying to GitHub Pages..."
+      script: npm run build:prod && echo "Deploying to GitHub Pages..."
       if: branch = master
       deploy:
         provider: pages
