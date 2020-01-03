@@ -22,6 +22,12 @@
     @media only screen and (min-width: 75rem) {
       padding-bottom: 32em;
     }
+
+    @media only screen and (min-width: 90rem) {
+      padding-bottom: calc(
+        100vw * 16 / 45
+      ); /* Bottom padding at 1440px viewport width will start at 32em (512px) and increase proportionally with the viewport width (by a factor of 16 / 45, derived from the ratio between the former fixed bottom padding of 32em and the fixed section width of 90rem). */
+    }
   }
 
   &:nth-last-of-type(2) {
@@ -33,10 +39,14 @@
   }
 
   &:nth-last-of-type(1) {
-    min-height: 30em;
+    min-height: 38em;
 
     @media only screen and (min-width: 30rem) {
-      min-height: 28em;
+      min-height: 32em;
+    }
+
+    @media only screen and (min-width: 48rem) {
+      min-height: 34em;
     }
   }
 
@@ -53,6 +63,7 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 1em;
+    max-width: 90em;
 
     @media only screen and (min-width: 30rem) {
       padding: 0 2.5em;
@@ -63,6 +74,10 @@
     }
 
     @media only screen and (min-width: 64rem) {
+      padding: 0 7.5em;
+    }
+
+    @media only screen and (min-width: 75rem) {
       padding: 0 10em;
     }
   }

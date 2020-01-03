@@ -125,10 +125,6 @@ body {
   font-family: _font(family-copy);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-
-  max-width: 90em;
-  width: 100%;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -187,12 +183,11 @@ body {
     border-bottom: none;
     padding-bottom: 0;
     text-transform: uppercase;
-    letter-spacing: -2px;
     font-weight: 700;
     display: block;
     text-align: center;
     margin-bottom: 16px;
-    font-size: 3.5em;
+    font-size: 3.25rem;
 
     opacity: 0;
     animation-name: translationProfileName, opacityProfile, blurProfile;
@@ -261,7 +256,6 @@ body {
 }
 
 .description {
-  letter-spacing: 0;
   text-transform: none;
   font-weight: 600;
   margin: 0 1em 1.375em 1em;
@@ -290,7 +284,7 @@ body {
   }
 
   @include for-size(desktop-up) {
-    font-size: 1.5em;
+    font-size: 1.625em;
   }
 }
 
@@ -373,9 +367,8 @@ body {
     font-family: _font(family-heading);
     font-weight: 700;
     color: _palette(text-primary);
-    letter-spacing: -1px;
     font-size: 2.5rem;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.4em;
     position: relative;
     display: inline-block;
 
@@ -393,15 +386,6 @@ body {
 
     @include for-size(desktop-up) {
       font-size: 4rem;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      border-bottom: 2px solid rgba(36, 44, 53, 0.15);
-      width: 32.5%;
-      bottom: -0.2em;
-      left: 0.05em;
     }
   }
 
@@ -563,32 +547,37 @@ body {
 
 .city-graphic {
   position: absolute;
-  right: -200px;
-  left: -200px;
   height: 16em;
+  left: -200px;
+  right: -200px;
 
   @include for-size(phone-landscape-up) {
+    height: 20em;
     left: -150px;
     right: -150px;
-    height: 20em;
   }
 
   @include for-size(tablet-portrait-up) {
+    height: 24em;
     left: -100px;
     right: -100px;
-    height: 24em;
   }
 
   @include for-size(tablet-landscape-up) {
-    left: -50px;
-    right: -50px;
     height: 28em;
+    left: -75px;
+    right: -75px;
   }
 
   @include for-size(desktop-up) {
-    left: 0;
-    right: 0;
     height: 32em;
+    left: -50px;
+    right: -50px;
+  }
+
+  @media only screen and (min-width: 90rem) {
+    left: calc((100vw - 90rem) / 2 * -1);
+    right: calc((100vw - 90rem) / 2 * -1);
   }
 
   &__img {
@@ -614,28 +603,56 @@ body {
     color: _palette(text-primary);
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1.25em;
-    letter-spacing: -2px;
+    margin-bottom: 0.5em;
     position: relative;
     display: inline-block;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
 
     @include for-size(phone-landscape-up) {
-      font-size: 3.725rem;
-      margin-bottom: 1.2em;
+      font-size: 2.875rem;
     }
 
-    span {
-      &::after {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid rgba(36, 44, 53, 0.15);
-        width: 37.5%;
-        bottom: -0.25em;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-      }
+    @include for-size(tablet-portrait-up) {
+      font-size: 3.125rem;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      font-size: 3.5rem;
+    }
+
+    @include for-size(desktop-up) {
+      font-size: 4rem;
+    }
+  }
+
+  &__desc {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+
+    @include for-size(phone-landscape-up) {
+      margin-bottom: 3.5em;
+      font-size: 1.0625rem;
+    }
+
+    @media only screen and (min-width: 40rem) {
+      margin-bottom: 1.5em;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      font-size: 1.1875rem;
+    }
+
+    @include for-size(desktop-up) {
+      font-size: 1.375rem;
+      line-height: 1.6;
     }
   }
 
@@ -657,9 +674,10 @@ body {
       height: 100%;
       width: 90%;
       transform: translate3d(-50%, 0, 0);
+      max-height: 780px;
 
       @include for-size(phone-landscape-up) {
-        bottom: 3.5em;
+        bottom: 2.5em;
       }
 
       @include for-size(tablet-portrait-up) {
@@ -733,14 +751,35 @@ body {
   }
 }
 
+/* These styles for the technology items are dependent on the items being contained within a row/column grid. */
+.row {
+  @media only screen and (min-width: 48rem) and (max-width: 54rem) {
+    .technology__item {
+      padding: 0.5em 0.75em;
+    }
+
+    .technology__item__img {
+      margin: 0 auto;
+      height: 36px;
+    }
+
+    .technology__item__label {
+      display: none;
+    }
+  }
+}
+
 .contact-form {
   position: relative;
   max-width: 70em;
   width: auto;
   margin: auto;
-  padding-top: 4.5em;
-  padding-bottom: 4.5em;
   z-index: 2;
+  padding: 4.5rem 0;
+
+  @media only screen and (min-width: 36rem) {
+    padding: 4.5em 2.5em;
+  }
 
   &__title {
     font-family: _font(family-heading);
@@ -748,30 +787,52 @@ body {
     color: _palette(text-primary);
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1.5em;
-    letter-spacing: -2px;
+    margin-bottom: 0.5em;
     position: relative;
     display: inline-block;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
 
-    span {
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid rgba(36, 44, 53, 0.15);
-        width: 37.5%;
-        bottom: -0.25em;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-      }
+    @include for-size(phone-landscape-up) {
+      font-size: 2.875rem;
     }
 
+    @include for-size(tablet-portrait-up) {
+      font-size: 3.125rem;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      font-size: 3.5rem;
+    }
+
+    @include for-size(desktop-up) {
+      font-size: 4rem;
+    }
+  }
+
+  &__desc {
+    text-align: center;
+    margin-bottom: 2em;
+    font-size: 1rem;
+    line-height: 1.6;
+
     @include for-size(phone-landscape-up) {
-      font-size: 3.725rem;
-      margin-bottom: 1.2em;
+      font-size: 1.0625rem;
+      margin-bottom: 3em;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    @include for-size(tablet-landscape-up) {
+      font-size: 1.1875rem;
+    }
+
+    @include for-size(desktop-up) {
+      font-size: 1.375rem;
+      line-height: 1.6;
     }
   }
 
@@ -873,6 +934,10 @@ body {
     left: 0;
     transform: rotate(180deg);
   }
+
+  @media only screen and (min-width: 90rem) {
+    display: none;
+  }
 }
 
 .honeypot {
@@ -886,6 +951,8 @@ body {
   transform: translate(-50%, 0);
   text-align: center;
   z-index: 1;
+  display: block;
+  width: 100%;
 }
 
 .copyright {

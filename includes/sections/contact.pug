@@ -4,6 +4,7 @@ section.section.section--bg-empty
       h2.contact-form__title
         a.permalink.visually-hidden(href="#contact-form", aria-label="Contact Form Permalink")
         span(tabindex="0") Contact Form
+      p.contact-form__desc Want to get in touch? Fill out this form, and I'll try my best to get back to you.
       form.form.form--contact(name="contact", action=htmlWebpackPlugin.options.sesEndpoint, method="POST", tabindex="0", aria-label="To Reach Ken, Fill Out This Form With The Required Information")
         input.honeypot(type="input", name="honeypot", value="", tabindex="-1", autocomplete="off")
         div.form__group
