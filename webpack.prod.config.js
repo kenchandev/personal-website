@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -25,6 +26,19 @@ module.exports = () => {
     },
     mode: "production",
     plugins: [
+      new HtmlCriticalWebpackPlugin({
+        base: path.resolve(__dirname, "dist"),
+        src: "index.html",
+        dest: "index.html",
+        inline: true,
+        minify: true,
+        extract: true,
+        width: 375,
+        height: 565,
+        penthouse: {
+          blockJSRequests: false
+        }
+      }),
       new PreloadWebpackPlugin({
         rel: "preload",
         include: "allAssets",

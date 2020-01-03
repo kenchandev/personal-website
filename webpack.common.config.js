@@ -77,7 +77,8 @@ module.exports = isProd => {
           isProd
             ? "https://c4g6e6lp97.execute-api.us-east-1.amazonaws.com/production"
             : "http://localhost:3000"
-        }/site-mailer`
+        }/site-mailer`,
+        currentYear: new Date().getFullYear()
       }),
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: "defer"
