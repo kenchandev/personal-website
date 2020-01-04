@@ -103,6 +103,9 @@ $averta-font-path: "../fonts/averta/";
 
 @font-face {
   font-family: "averta";
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-regular-webfont.eot");
   src: url("#{$averta-font-path}averta-regular-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -111,13 +114,13 @@ $averta-font-path: "../fonts/averta/";
     url("#{$averta-font-path}averta-regular-webfont.ttf") format("truetype"),
     url("#{$averta-font-path}averta-regular-webfont.svg#avertaregular")
       format("svg");
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
 }
 
 @font-face {
   font-family: "averta";
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-regularitalic-webfont.eot");
   src: url("#{$averta-font-path}averta-regularitalic-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -128,13 +131,13 @@ $averta-font-path: "../fonts/averta/";
       format("truetype"),
     url("#{$averta-font-path}averta-regularitalic-webfont.svg#avertaregular")
       format("svg");
-  font-weight: 400;
-  font-style: italic;
-  font-display: fallback;
 }
 
 @font-face {
   font-family: "averta";
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-semibold-webfont.eot");
   src: url("#{$averta-font-path}averta-semibold-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -143,13 +146,13 @@ $averta-font-path: "../fonts/averta/";
     url("#{$averta-font-path}averta-semibold-webfont.ttf") format("truetype"),
     url("#{$averta-font-path}averta-semibold-webfont.svg#avertasemibold")
       format("svg");
-  font-weight: 600;
-  font-style: normal;
-  font-display: fallback;
 }
 
 @font-face {
   font-family: "averta";
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-semibolditalic-webfont.eot");
   src: url("#{$averta-font-path}averta-semibolditalic-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -160,13 +163,13 @@ $averta-font-path: "../fonts/averta/";
       format("truetype"),
     url("#{$averta-font-path}averta-semibolditalic-webfont.svg#avertasemibold_italic")
       format("svg");
-  font-weight: 600;
-  font-style: italic;
-  font-display: fallback;
 }
 
 @font-face {
   font-family: "averta";
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-bold-webfont.eot");
   src: url("#{$averta-font-path}averta-bold-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -174,13 +177,13 @@ $averta-font-path: "../fonts/averta/";
     url("#{$averta-font-path}averta-bold-webfont.woff") format("woff"),
     url("#{$averta-font-path}averta-bold-webfont.ttf") format("truetype"),
     url("#{$averta-font-path}averta-bold-webfont.svg#avertabold") format("svg");
-  font-weight: 700;
-  font-style: normal;
-  font-display: fallback;
 }
 
 @font-face {
   font-family: "averta";
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
   src: url("#{$averta-font-path}averta-bolditalic-webfont.eot");
   src: url("#{$averta-font-path}averta-bolditalic-webfont.eot?#iefix")
       format("embedded-opentype"),
@@ -189,9 +192,6 @@ $averta-font-path: "../fonts/averta/";
     url("#{$averta-font-path}averta-bolditalic-webfont.ttf") format("truetype"),
     url("#{$averta-font-path}averta-bolditalic-webfont.svg#avertabold")
       format("svg");
-  font-weight: 700;
-  font-style: italic;
-  font-display: fallback;
 }
 
 // @font-face {
