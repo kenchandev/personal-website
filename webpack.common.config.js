@@ -92,8 +92,8 @@ module.exports = isProd => {
       new WebpackPwaManifest({
         name: "Ken Chan",
         short_name: "Ken Chan",
-        theme_color: "#252832",
-        background_color: "#252832",
+        theme_color: "#070A14",
+        background_color: "#070A14",
         display: "standalone",
         orientation: "portrait",
         icons: [
