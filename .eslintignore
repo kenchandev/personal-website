@@ -1,4 +1,5 @@
 node_modules
+dist
 webpack.config.js
 webpack.common.config.js
 webpack.dev.config.js
