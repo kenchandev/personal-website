@@ -30,7 +30,7 @@ let backToTopLink = new BackToTopLink(".back-to-top", "skip-content", "top");
 let contactForm = new Form(".form.form--contact", "submit", modal);
 
 let civicGraph = new Experience(
-  "msft",
+  "civic-graph",
   CivicGraphDesktopHomepagePng,
   CivicGraphMobileHomepagePng,
   []

@@ -3,7 +3,9 @@ export const hasClass = (element, targetClass) =>
 
 export const addClass = (element, newClass) => {
   if (!hasClass(element, newClass)) {
-    element.className = `${element.className.trim()} ${newClass}`;
+    element.className = element.className
+      ? `${element.className.trim()} ${newClass}`
+      : newClass;
   }
 };
 
@@ -12,6 +14,10 @@ export const removeClass = (element, targetClass) => {
     element.className = element.className
       .replace(new RegExp(`(\\s|^)${targetClass}(\\s|$)`), " ")
       .trim();
+
+    if (!element.className) {
+      element.removeAttribute("class");
+    }
   }
 };
 
