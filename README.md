@@ -21,7 +21,8 @@ _Note_: An AWS Lambda function running AWS SES sends an e-mail with the informat
 - [x] Vanilla ES6 JavaScript
 - [x] Mobile-First (Progressive Enhancement)
 - [x] Inline Critical CSS for Above-The-Fold Content
+- [x] Testing Suite and Code Coverage Reporting for Client-Side Scripts
 
 ## Roadmap
 
-- [ ] Add testing suite for JavaScript code.
+- [ ] Add more tests for JavaScript code. Improve upon current code coverage metrics.
