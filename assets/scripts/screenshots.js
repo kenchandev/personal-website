@@ -75,7 +75,9 @@ export const bindOnClickProjectFeatures = experiences => {
       currentActiveElement = element;
 
       renderScreenshot(
-        browserElement.getElementById(browserElement.dataset.targetId),
+        browserElement.getElementById(
+          browserElement.getAttribute("data-target-id")
+        ),
         {
           imageUrl,
           attrs: SCREENSHOT_ATTRS.BROWSER
@@ -130,9 +132,9 @@ export const bindOnScrollLazyImages = (experiences, callbacks) => {
         !mobile.isVisited &&
         isPartiallyVisible(mobile.element)
       ) {
-        callbacks[mobile.element.dataset.callback](
+        callbacks[mobile.element.getAttribute("data-callback")](
           mobile.element,
-          mobile.element.dataset.targetId
+          mobile.element.getAttribute("data-target-id")
         );
 
         mobile.isVisited = true;
@@ -141,9 +143,9 @@ export const bindOnScrollLazyImages = (experiences, callbacks) => {
         !browser.isVisited &&
         isPartiallyVisible(browser.element)
       ) {
-        callbacks[browser.element.dataset.callback](
+        callbacks[browser.element.getAttribute("data-callback")](
           browser.element,
-          browser.element.dataset.targetId
+          browser.element.getAttribute("data-target-id")
         );
 
         browser.isVisited = true;
