@@ -21,7 +21,7 @@ export const renderScreenshot = (
   //  Create a "placeholder" image to ensure the execution of the `load` callback.
   //  https://stackoverflow.com/questions/35036672/trap-the-image-loading-event-on-an-svg-element-in-ie11
 
-  let loader = target.parentElement.parentElement.parentElement.lastChild,
+  let loader = target.parentNode.parentNode.parentNode.lastChild,
     previousScreenshot = target.querySelector("#Screenshot");
 
   if (loader.style.display === "none") {
