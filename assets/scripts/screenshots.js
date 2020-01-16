@@ -26,7 +26,7 @@ export const renderScreenshot = (
 
   if (loader.style.display === "none") {
     if (previousScreenshot) {
-      previousScreenshot.remove();
+      previousScreenshot.parentNode.removeChild(previousScreenshot);
     }
 
     loader.style.display = "block";
