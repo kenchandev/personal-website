@@ -20,17 +20,26 @@
     "snyk": "snyk auth && snyk wizard",
     "predeploy": "npm run build:prod",
     "deploy": "gh-pages -d dist",
-    "test": "jest",
-    "test:coverage": "npm run test -- --coverage",
-    "test:watch": "npm run test -- --watch"
+    "test": "is-ci \"test:coverage\" \"test:watch\"",
+    "test:show-config": "jest --showConfig",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --watch"
   },
   "bugs": {
     "url": "https://github.com/kenchandev/personal-website/issues"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn format:check && yarn lint && yarn test"
+      "pre-commit": "lint-staged && yarn format:check && yarn lint"
     }
+  },
+  "lint-staged": {
+    "**/*.+(js|json|scss|pug|md)": [
+      "prettier",
+      "jest --findRelatedTests",
+      "git add"
+    ]
   },
   "keywords": [
     "website",
@@ -72,7 +81,10 @@
     "html-critical-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.1.2",
+    "is-ci-cli": "^2.0.0",
     "jest": "^24.9.0",
+    "jest-watch-typeahead": "^0.4.2",
+    "lint-staged": "^9.5.0",
     "mini-css-extract-plugin": "^0.9.0",
     "ngrok": "^3.1.1",
     "node-sass": "^4.9.3",

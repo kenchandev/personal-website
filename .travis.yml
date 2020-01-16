@@ -17,6 +17,8 @@ script:
   - npm run lint
   - npm run test
 
+after_script: npx codecov@3
+
 jobs:
   include:
     - stage: prod-build-deploy
