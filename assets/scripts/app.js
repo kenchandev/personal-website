@@ -90,6 +90,6 @@ if (
 bindOnClickProjectFeatures(experiences);
 
 //  Injected by Webpack.
-if (IS_PROD) {
+if (IS_PROD && !window.Cypress) {
   OfflinePluginRuntime.install();
 }

@@ -1,0 +1,5 @@
+{
+  "baseUrl": "http://localhost:8889",
+  "integrationFolder": "cypress/e2e",
+  "blacklistHosts": ["www.google-analytics.com", "www.googletagmanager.com"]
+}
