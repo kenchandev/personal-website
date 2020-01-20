@@ -7,3 +7,5 @@ yarn.lock
 *.sketch
 dist
 coverage
+cypress/videos
+cypress/screenshots

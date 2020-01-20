@@ -9,13 +9,24 @@ node_js:
   - "lts/*"
   - 10
 
-cache: npm
+addons:
+  apt:
+    packages:
+      # Manually install Cypress dependency.
+      - libgconf-2-4
+
+cache:
+  npm: true
+  directories:
+    # Cache folder with Cypress binary.
+    - ~/.cache
 
 script:
   - npm install
   - npm run format:check
   - npm run lint
   - npm run test
+  - npm run test:e2e
 
 after_script: npx codecov@3
 
