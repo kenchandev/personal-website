@@ -26,7 +26,6 @@ script:
   - npm run format:check
   - npm run lint
   - npm run test
-  - npm run test:e2e
 
 after_script: npx codecov@3
 
@@ -36,7 +35,7 @@ jobs:
       name: "Build Production Site and Deploy to GitHub Pages"
       os: linux
       node_js: "lts/*"
-      script: npm run build:prod && echo "Deploying to GitHub Pages..."
+      script: npm run build:prod && npm run test:e2e && echo "Deploying to GitHub Pages..."
       if: branch = master
       deploy:
         provider: pages
