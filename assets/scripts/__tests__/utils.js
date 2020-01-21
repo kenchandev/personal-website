@@ -3,12 +3,15 @@ import {
   addClass,
   removeClass,
   isPartiallyVisible,
-  isFullyVisible
+  isFullyVisible,
+  smoothScrollTo
 } from "../utils";
 import {
   CLASS_NAMES,
   LARGE_RECT_DIMENSIONS,
-  SMALL_RECT_DIMENSIONS
+  SMALL_RECT_DIMENSIONS,
+  BODY_SCROLL_HEIGHT,
+  SCROLL_DURATION
 } from "../__fixtures__";
 
 /**
@@ -46,9 +49,30 @@ function getTestDimensions(dimensions, verticalOffset) {
     : dimensions;
 }
 
+function simulateWindowScroll({ scrollX = 0, scrollY = 0 }) {
+  window.scrollX = scrollX;
+  window.scrollY = scrollY;
+  window.pageYOffset = scrollY;
+}
+
 describe("dom helper methods", () => {
+  beforeEach(() => {
+    jest
+      .spyOn(window, "scrollTo")
+      .mockImplementation((scrollX, scrollY) =>
+        simulateWindowScroll({ scrollX, scrollY })
+      );
+
+    jest.spyOn(window, "requestAnimationFrame").mockImplementation(cb => {
+      process.nextTick(() => {
+        //  Callback is an asynchronous action that updates the window's scrolling position per `requestAnimationFrame` call. Must call `nextTick` to guarantee that the current `requestAnimationFrame` call in the event loop finishes processing prior to executing the next `requestAnimationFrame` call.
+        cb(window.performance.now());
+      });
+    });
+  });
+
   afterEach(() => {
-    jest.resetAllMocks();
+    jest.restoreAllMocks();
   });
 
   test("checks if class exists on element", () => {
@@ -132,5 +156,17 @@ describe("dom helper methods", () => {
     });
 
     expect(isFullyVisible(el)).toBe(true);
+  });
+
+  test("checks if page scrolls back to top from bottom", async () => {
+    window.scrollTo(0, BODY_SCROLL_HEIGHT);
+    smoothScrollTo(0, SCROLL_DURATION);
+
+    await new Promise(resolve =>
+      setTimeout(() => {
+        expect(window.scrollY).toBe(0);
+        resolve();
+      }, SCROLL_DURATION)
+    );
   });
 });
