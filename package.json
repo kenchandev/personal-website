@@ -27,7 +27,7 @@
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --watch",
     "test:e2e": "is-ci \"test:e2e:prod\" \"test:e2e:dev\"",
-    "test:e2e:dev": "start-server-and-test start http://localhost:8889 cy:run",
+    "test:e2e:dev": "start-server-and-test start http://localhost:8889 cy:open",
     "test:e2e:prod": "CYPRESS_baseUrl=http://localhost:5000 start-server-and-test serve http://localhost:5000 cy:run",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn format:check && yarn lint && yarn test:e2e:dev"
+      "pre-commit": "lint-staged && yarn format:check && yarn lint"
     }
   },
   "lint-staged": {
