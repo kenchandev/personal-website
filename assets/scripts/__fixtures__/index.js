@@ -1,4 +1,6 @@
 export const CLASS_NAMES = ["foo", "bar", "qaz"];
+export const BODY_SCROLL_HEIGHT = 3000;
+export const SCROLL_DURATION = 500;
 export const LARGE_RECT_DIMENSIONS = {
   width: 200,
   height: 2000,
