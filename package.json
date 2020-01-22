@@ -2,7 +2,7 @@
   "name": "personal-website",
   "description": "Ken Chan's Personal Website",
   "scripts": {
-    "serve": "serve dist",
+    "serve": "serve -l 3000 dist",
     "start": "webpack-dev-server --host 0.0.0.0 --hot --open --useLocalIp",
     "lint": "esw --color 'assets/scripts/**/*.js'",
     "lint:watch": "npm run lint -- --watch",
@@ -28,7 +28,7 @@
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --watch",
     "test:e2e": "is-ci \"test:e2e:prod\" \"test:e2e:dev\"",
     "test:e2e:dev": "start-server-and-test start http://localhost:8889 cy:open",
-    "test:e2e:prod": "CYPRESS_baseUrl=http://localhost:5000 start-server-and-test serve http://localhost:5000 cy:run",
+    "test:e2e:prod": "CYPRESS_baseUrl=http://localhost:3000 start-server-and-test serve http://localhost:3000 cy:run",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
