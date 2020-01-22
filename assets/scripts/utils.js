@@ -77,6 +77,12 @@ export const smoothScrollTo = (scrollTo, scrollDuration) => {
     scrollCount += Math.PI / (scrollDuration / tsDiff);
 
     if (scrollCount >= Math.PI) {
+      //  If the window is already scrolled back to `scrollTo`, then do nothing.
+      //  Otherwise, automatically scroll the window back to `scrollTo`.
+      if (window.pageYOffset !== scrollTo) {
+        window.scrollTo(scrollTo, 0);
+      }
+
       return;
     }
 
