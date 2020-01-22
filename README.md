@@ -2,6 +2,7 @@
 
 <p>
   <a href="https://travis-ci.org/kenchandev/personal-website"><img src="https://travis-ci.org/kenchandev/personal-website.svg?branch=master" alt="Travis CI Build Status" /></a>
+  <a href="https://codecov.io/gh/kenchandev/personal-website"><img src="https://codecov.io/gh/kenchandev/personal-website/branch/master/graph/badge.svg" alt="Codecov Coverage Percentage" /></a>
 </p>
 
 Source Code for Ken Chan's Personal Website.
