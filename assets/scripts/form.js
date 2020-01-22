@@ -22,6 +22,11 @@ class Form {
       this.element.onsubmit = e => {
         e.preventDefault();
 
+        //  Check to prevent Cypress tests from submitting empty form.
+        if (!e.target.checkValidity()) {
+          return;
+        }
+
         // Escape if the honeypot has been filled.
         if (!!this.element.children.namedItem("honeypot").value) {
           return;
