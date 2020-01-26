@@ -11,6 +11,7 @@ export const LARGE_RECT_DIMENSIONS = {
   x: 0,
   y: 0
 };
+export const ANCHOR_HEIGHT_ADJUST = 30;
 export const SMALL_RECT_DIMENSIONS = {
   width: 200,
   height: 200,
