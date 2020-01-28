@@ -7,6 +7,7 @@ import {
   smoothScrollTo
 } from "../utils";
 import {
+  ANCHOR_HEIGHT_ADJUST,
   CLASS_NAMES,
   LARGE_RECT_DIMENSIONS,
   SMALL_RECT_DIMENSIONS,
@@ -20,7 +21,7 @@ import {
  *
  */
 
-function setup({ className = "", dimensions } = {}) {
+function setupElement({ className = "", dimensions } = {}) {
   const el = document.createElement("div");
   el.className = className;
 
@@ -76,13 +77,13 @@ describe("dom helper methods", () => {
   });
 
   test("checks if class exists on element", () => {
-    const { el } = setup({ className: CLASS_NAMES[0] });
+    const { el } = setupElement({ className: CLASS_NAMES[0] });
 
     expect(hasClass(el, CLASS_NAMES[0])).toBe(true);
   });
 
   test("checks if class is added to element", () => {
-    const { el } = setup();
+    const { el } = setupElement();
 
     addClass(el, CLASS_NAMES[0]);
 
@@ -90,7 +91,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if multiple classes are added to element", () => {
-    const { el } = setup();
+    const { el } = setupElement();
 
     for (let className of CLASS_NAMES) {
       addClass(el, className);
@@ -100,7 +101,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if class is removed from element", () => {
-    const { el } = setup({ className: CLASS_NAMES[0] });
+    const { el } = setupElement({ className: CLASS_NAMES[0] });
 
     removeClass(el, CLASS_NAMES[0]);
 
@@ -108,7 +109,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if multiple classes are removed from element", () => {
-    const { el } = setup({ className: CLASS_NAMES.join(" ") });
+    const { el } = setupElement({ className: CLASS_NAMES.join(" ") });
 
     for (let className of CLASS_NAMES) {
       removeClass(el, className);
@@ -118,7 +119,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if element is partially visible in window", () => {
-    const { el } = setup({
+    const { el } = setupElement({
       dimensions: getTestDimensions(
         LARGE_RECT_DIMENSIONS,
         window.innerHeight / 2
@@ -129,7 +130,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if element is not visible in window", () => {
-    const { el } = setup({
+    const { el } = setupElement({
       dimensions: getTestDimensions(
         LARGE_RECT_DIMENSIONS,
         window.innerHeight + 1
@@ -140,7 +141,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if element is not fully visible in window", () => {
-    const { el } = setup({
+    const { el } = setupElement({
       dimensions: getTestDimensions(
         LARGE_RECT_DIMENSIONS,
         window.innerHeight / 2
@@ -151,7 +152,7 @@ describe("dom helper methods", () => {
   });
 
   test("checks if element is fully visible in window", () => {
-    const { el } = setup({
+    const { el } = setupElement({
       dimensions: getTestDimensions(SMALL_RECT_DIMENSIONS)
     });
 
@@ -165,6 +166,26 @@ describe("dom helper methods", () => {
     await new Promise(resolve =>
       setTimeout(() => {
         expect(window.scrollY).toBe(0);
+        resolve();
+      }, SCROLL_DURATION)
+    );
+  });
+
+  test("checks if page scrolls to dom element", async () => {
+    const className = CLASS_NAMES[0];
+    const verticalOffset = window.innerHeight / 2;
+    const { el } = setupElement({
+      className,
+      dimensions: getTestDimensions(LARGE_RECT_DIMENSIONS, verticalOffset)
+    });
+
+    document.body.appendChild(el);
+
+    smoothScrollTo(`.${className}`, SCROLL_DURATION);
+
+    await new Promise(resolve =>
+      setTimeout(() => {
+        expect(window.scrollY).toBe(verticalOffset - ANCHOR_HEIGHT_ADJUST);
         resolve();
       }, SCROLL_DURATION)
     );
