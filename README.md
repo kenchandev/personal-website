@@ -11,6 +11,8 @@ Source Code for Ken Chan's Personal Website.
 
 _Note_: An AWS Lambda function running AWS SES sends an e-mail with the information filled out within the contact form. <a href="https://github.com/kenchandev/site-ses">Source Code</a>
 
+**Features**:
+
 - [x] SVG Animations
 - [x] Responsiveness
 - [x] Accessibility
