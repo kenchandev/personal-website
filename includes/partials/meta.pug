@@ -5,8 +5,9 @@ include ../mixins/rich-snippets
   var author = {
     name: "Ken Chan",
     description: "Ken Chan is a software engineer who primarily works on front-end development and tooling. His interests lie in open-source software architecture, data visualizations, client-side technologies/performance and product development.",
-    url: "https://kenchandev.com/",
-    profileRelativeUrl: "./assets/images/profile.png"
+    url: "https://kenchandev.com",
+    occupation: "Software Engineer",
+    profileRelativeUrl: require("./assets/images/profile.png")
   }
 
   var primaryColor = "#070A14"
@@ -42,8 +43,60 @@ meta(name="author", content=author.name)
 +favicons("icon", "favicon", [ 32, 96, 16 ], "image/png")
 
 link(rel="mask-icon", href=require("./assets/favicons/safari-pinned-tab.svg"), color=primaryColor)
-link(rel="canonical", href="https://kenchandev.com")
+link(rel="canonical", href=author.url)
 
 meta(name="msapplication-TileColor", content=primaryColor)
 meta(name="msapplication-TileImage", content=require("./assets/favicons/mstile-144x144.png"))
 meta(name="theme-color", content=primaryColor)
+
+script(type="application/ld+json").
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "#{author.name}",
+    "description": "#{author.description}",
+    "url": "#{author.url}",
+    "jobTitle": "#{author.occupation}",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "New York University - Polytechnic School of Engineering",
+        "sameAs": "https://en.wikipedia.org/wiki/New_York_University_Tandon_School_of_Engineering"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Brooklyn College (Macaulay Honors)",
+        "sameAs": [
+          "https://en.wikipedia.org/wiki/Brooklyn_College",
+          "https://en.wikipedia.org/wiki/William_E._Macaulay_Honors_College"
+        ]
+      }
+    ],
+    "image": "#{author.url}/#{author.profileRelativeUrl}",
+    "workLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York City",
+        "addressRegion": "NY"
+      }
+    },
+    "homeLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York City",
+        "addressRegion": "NY"
+      }
+    },
+    "sameAs": [
+      "https://github.com/kenchandev",
+      "https://codepen.io/kenchandev",
+      "https://linkedin.com/in/kenchandev",
+      "https://twitter.com/kenchandev",
+      "https://angel.co/ken-chan-3"
+    ]
+  }
+
+
+

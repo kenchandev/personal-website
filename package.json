@@ -41,7 +41,7 @@
     }
   },
   "lint-staged": {
-    "**/*.+(js|json|scss|pug|md)": [
+    "**/*.+(js|json)": [
       "prettier",
       "jest --findRelatedTests",
       "git add"
