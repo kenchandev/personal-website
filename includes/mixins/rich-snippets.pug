@@ -1,6 +1,3 @@
 mixin richSnippets(attr, prefix, info)
   each content, key in info
-    if key === "image"
-      meta(content=`https://kenchandev.com/${ require("./assets/images/profile.png") }`)&attributes({ [attr]: `${ prefix }:${ key }` })
-    else
-      meta(content=`${content}`)&attributes({ [attr]: `${ prefix }:${ key }` })
+    meta(content=`${content}`)&attributes({ [attr]: `${ prefix }:${ key }` })
