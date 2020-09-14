@@ -14,8 +14,11 @@ include ../mixins/rich-snippets
 
   var meta = {
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       creator: "@kenchandev",
+      title: `${ author.name }`,
+      description: `${ author.description }`,
+      image: `https://kenchandev.com/${ require("./assets/images/thumbnail.png") }`
     },
     openGraph: {
       title: `${ author.name }`,
@@ -23,7 +26,7 @@ include ../mixins/rich-snippets
       url: `${ author.url }`,
       type: "website",
       description: `${ author.description }`,
-      image: `${ author.profileRelativeUrl }`
+      image: `https://kenchandev.com/${ require("./assets/images/profile.png") }`
     }
   }
 
