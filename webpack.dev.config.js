@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || 8889;
@@ -20,6 +21,15 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
       filename: "[name]-[hash].min.js"
     },
-    mode: "development"
+    mode: "development",
+    plugins: [
+      new CopyPlugin([
+        {
+          from: "@(CNAME.dev)",
+          to: "[name]",
+          toType: "template"
+        }
+      ])
+    ]
   };
 };
