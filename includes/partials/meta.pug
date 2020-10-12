@@ -38,6 +38,9 @@ meta(name="viewport", content="width=device-width, initial-scale=1, user-scalabl
 meta(name="description", content=author.description)
 meta(name="author", content=author.name)
 
+if htmlWebpackPlugin.options.isDev
+  meta(name="ROBOTS", content="NOINDEX, NOFOLLOW")
+
 +richSnippets("name", "twitter", meta.twitter)
 +richSnippets("property", "og", meta.openGraph)
 
