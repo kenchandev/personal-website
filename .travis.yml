@@ -7,7 +7,7 @@ os:
 node_js:
   - "node"
   - "lts/*"
-  - 10
+  - 14
 
 addons:
   apt:
@@ -31,6 +31,22 @@ after_script: npx codecov@3
 
 jobs:
   include:
+    - stage: dev-build-deploy
+      name: "Build Development Site and Deploy to GitHub Pages"
+      os: linux
+      node_js: "lts/*"
+      script: npm run build:dev && npm run test:e2e && echo "Deploying to GitHub Pages..."
+      if: branch = dev
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        local-dir: dist/
+        github-token: $GITHUB_API_KEY
+        keep-history: true
+        repo: kenchandev/dev.kenchandev.github.io
+        target-branch: master
+        on:
+          branch: dev
     - stage: prod-build-deploy
       name: "Build Production Site and Deploy to GitHub Pages"
       os: linux
