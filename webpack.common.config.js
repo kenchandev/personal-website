@@ -7,7 +7,7 @@ const OfflinePlugin = require("offline-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
-module.exports = isProd => {
+module.exports = (isProd, isDev) => {
   return {
     entry: {
       "assets/scripts/app": path.resolve(
@@ -73,11 +73,14 @@ module.exports = isProd => {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "index.pug"),
         isProd,
+        isDev,
         sesEndpoint: `${
           isProd
-            ? "https://c4g6e6lp97.execute-api.us-east-1.amazonaws.com/production"
+            ? "https://api.kenchandev.com/v1/contact"
+            : isDev
+            ? "https://dev-api.kenchandev.com/v1/contact"
             : "http://localhost:3000"
-        }/site-mailer`,
+        }`,
         currentYear: new Date().getFullYear()
       }),
       new ScriptExtHtmlWebpackPlugin({
