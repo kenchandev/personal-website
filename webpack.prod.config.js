@@ -3,6 +3,7 @@ const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const SriPlugin = require("webpack-subresource-integrity");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = () => {
@@ -22,38 +23,29 @@ module.exports = () => {
     },
     output: {
       path: path.join(__dirname, "dist"),
-      filename: "[name]-[hash].min.js"
+      filename: "[name]-[hash].min.js",
+      crossOriginLoading: "anonymous"
     },
     mode: "production",
     plugins: [
-      new HtmlCriticalWebpackPlugin({
-        base: path.resolve(__dirname, "dist"),
-        src: "index.html",
-        dest: "index.html",
-        inline: true,
-        minify: true,
-        extract: true,
-        width: 1440,
-        height: 1000,
-        penthouse: {
-          blockJSRequests: false
-        }
-      }),
       new PreloadWebpackPlugin({
         rel: "preload",
         include: "allAssets",
         as(entry) {
-          if (/\.css$/.test(entry)) return "style";
           if (/\.(woff2)$/.test(entry)) return "font";
-          // if (/\.(jpg|png|gif|svg)$/.test(entry)) return "image";
+
           return "script";
         },
         fileBlacklist: [
+          /\.css/,
           /\.js/,
           /\.(eot|otf|ttf|woff)$/,
           /\.(jpg|png|gif|svg)$/,
           /__offline_serviceworker/
         ]
+      }),
+      new SriPlugin({
+        hashFuncNames: ["sha256", "sha384"]
       }),
       new CopyPlugin([
         {
